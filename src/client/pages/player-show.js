@@ -2,12 +2,12 @@
 var app = require('ampersand-app');
 var PageView = require('./base');
 var templates = require('../templates');
-var PersonForm = require('../forms/person');
+var PlayerForm = require('../forms/player');
 
 
 module.exports = PageView.extend({
-  pageTitle: 'view person',
-  template: templates.pages.personView,
+  pageTitle: 'view player',
+  template: templates.pages.playerView,
   bindings: {
     'model.fullName': {
       hook: 'name'
@@ -28,7 +28,7 @@ module.exports = PageView.extend({
   },
   initialize: function (spec) {
     var self = this;
-    app.people.getOrFetch(spec.id, { all: true }, function (err, model) {
+    app.players.getOrFetch(spec.id, { all: true }, function (err, model) {
       if (err) alert('couldnt find a model with id: ' + spec.id);
       self.model = model;
     });
@@ -36,7 +36,7 @@ module.exports = PageView.extend({
   handleDeleteClick: function () {
     this.model.destroy({
       success: function () {
-        app.navigate('collections');
+        app.navigate('players');
       }
     });
   }

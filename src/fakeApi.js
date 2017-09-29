@@ -47,7 +47,7 @@ function get(id) {
 exports.register = function (server, options, next) {
   server.route({
     method: 'GET',
-    path: '/api/people',
+    path: '/api/players',
     handler: function (request, reply) {
       reply(people);
     }
@@ -55,7 +55,7 @@ exports.register = function (server, options, next) {
 
   server.route({
     method: 'POST',
-    path: '/api/people',
+    path: '/api/players',
     handler: function (request, reply) {
       var person = request.payload;
       person.id = id++;
@@ -66,7 +66,7 @@ exports.register = function (server, options, next) {
 
   server.route({
     method: 'GET',
-    path: '/api/people/{id}',
+    path: '/api/players/{id}',
     handler: function (request, reply) {
       var found = get(request.params.id);
       reply(found).code(found ? 200 : 404);
@@ -75,7 +75,7 @@ exports.register = function (server, options, next) {
 
   server.route({
     method: 'DELETE',
-    path: '/api/people/{id}',
+    path: '/api/players/{id}',
     handler: function (request, reply) {
       var found = get(request.params.id);
       if (found) people = _.without(people, found);
@@ -85,7 +85,7 @@ exports.register = function (server, options, next) {
 
   server.route({
     method: 'PUT',
-    path: '/api/people/{id}',
+    path: '/api/players/{id}',
     handler: function (request, reply) {
       var found = get(request.params.id);
       if (found) _.extend(found, request.payload);

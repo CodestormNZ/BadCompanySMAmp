@@ -18,7 +18,7 @@
 
     // body.jade compiled template
     templatizer["body"] = function tmpl_body() {
-        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/" class="navbar-brand">Bad Company SM Web UI</a></div><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/collections">collection demo</a></li></ul></div></nav><div class="container"><main data-hook="page-container"></main><footer class="footer-main"><nav class="nav-footer cf"><div><a href="" class="nav-item external"> </a></div><div><a href="" class="nav-item external"> </a></div><div><a href="" class="nav-item external"> </a></div></nav></footer></div></body>';
+        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/" class="navbar-brand">Bad Company SM Web UI</a></div><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/players">players</a></li></ul></div></nav><div class="container"><main data-hook="page-container"></main><footer class="footer-main"><nav class="nav-footer cf"><div><a href="" class="nav-item external"> </a></div><div><a href="" class="nav-item external"> </a></div><div><a href="" class="nav-item external"> </a></div></nav></footer></div></body>';
     };
 
     // head.jade compiled template
@@ -31,14 +31,9 @@
         return '<div class="form-group"><label data-hook="label"></label><div data-hook="message-container"><div data-hook="message-text" class="alert alert-danger"></div></div><input class="form-control"/></div>';
     };
 
-    // includes\person.jade compiled template
-    templatizer["includes"]["person"] = function tmpl_includes_person() {
-        return '<li class="person list-group-item container"><img data-hook="avatar" width="40" height="40"/><a data-hook="name"></a><span class="btn-group pull-right"> <a data-hook="action-edit" class="btn btn-default">edit </a><a href="#" data-hook="action-delete" class="btn btn-danger">delete</a></span></li>';
-    };
-
-    // pages\collectionDemo.jade compiled template
-    templatizer["pages"]["collectionDemo"] = function tmpl_pages_collectionDemo() {
-        return '<section class="page pageOne"><h2>Collection demo</h2><ul data-hook="people-list" class="list-group"></ul><div class="buttons btn-group"><button data-hook="reset" class="btn btn-default">.reset() </button><button data-hook="fetch" class="btn btn-default">.fetch() </button><button data-hook="shuffle" class="btn btn-default">.shuffle() </button><button data-hook="add" class="btn btn-default">.addRandom()</button><a href="/person/add" class="btn btn-default">Add Person</a></div></section>';
+    // includes\player.jade compiled template
+    templatizer["includes"]["player"] = function tmpl_includes_player() {
+        return '<li class="player list-group-item container"><img data-hook="avatar" width="40" height="40"/><a data-hook="name"></a><span class="btn-group pull-right"> <a data-hook="action-edit" class="btn btn-default">edit </a><a href="#" data-hook="action-delete" class="btn btn-danger">delete</a></span></li>';
     };
 
     // pages\home.jade compiled template
@@ -46,19 +41,24 @@
         return '<section class="page home"><h2>Bad Company SM Web UI</h2></section>';
     };
 
-    // pages\personAdd.jade compiled template
-    templatizer["pages"]["personAdd"] = function tmpl_pages_personAdd() {
-        return '<section class="page add-person"><h2>Add Person</h2><p>This form and all behavior is defined by the form view in <code>client/forms/person.js</code>.</p><p>The same form-view is used for both editing and creating new users.</p><form data-hook="person-form"><fieldset data-hook="field-container"></fieldset><div class="buttons"><button data-hook="reset" type="submit" class="btn">Submit</button></div></form></section>';
+    // pages\playerAdd.jade compiled template
+    templatizer["pages"]["playerAdd"] = function tmpl_pages_playerAdd() {
+        return '<section class="page add-player"><h2>Add Player</h2><form data-hook="player-form"><fieldset data-hook="field-container"></fieldset><div class="buttons"><button data-hook="reset" type="submit" class="btn">Submit</button></div></form></section>';
     };
 
-    // pages\personEdit.jade compiled template
-    templatizer["pages"]["personEdit"] = function tmpl_pages_personEdit() {
-        return '<section class="page edit-person"><h2>Edit Person</h2><p>This form and all behavior is defined by the form view in <code>client/forms/person.js</code>.</p><p>The same form-view is used for both editing and creating new users.</p><form data-hook="person-form"><fieldset data-hook="field-container"></fieldset><div class="buttons"><button data-hook="reset" type="submit" class="btn">Submit</button></div></form></section>';
+    // pages\playerEdit.jade compiled template
+    templatizer["pages"]["playerEdit"] = function tmpl_pages_playerEdit() {
+        return '<section class="page edit-player"><h2>Edit Player</h2><form data-hook="player-form"><fieldset data-hook="field-container"></fieldset><div class="buttons"><button data-hook="reset" type="submit" class="btn">Submit</button></div></form></section>';
     };
 
-    // pages\personView.jade compiled template
-    templatizer["pages"]["personView"] = function tmpl_pages_personView() {
-        return '<section class="page view-person"><h2 data-hook="name"></h2><img data-hook="avatar" width="80" height="80"/><div class="buttons"><a data-hook="edit" class="btn">Edit</a><button data-hook="delete" class="btn">Delete</button></div></section>';
+    // pages\playersOnline.jade compiled template
+    templatizer["pages"]["playersOnline"] = function tmpl_pages_playersOnline() {
+        return '<section class="page pageOne"><h2>Players Online</h2><ul data-hook="player-list" class="list-group"></ul><div class="buttons btn-group"><button data-hook="reset" class="btn btn-default">.reset() </button><button data-hook="fetch" class="btn btn-default">.fetch() </button><button data-hook="shuffle" class="btn btn-default">.shuffle() </button><button data-hook="add" class="btn btn-default">.addRandom()</button><a href="/player/add" class="btn btn-default">Add Player</a></div></section>';
+    };
+
+    // pages\playerView.jade compiled template
+    templatizer["pages"]["playerView"] = function tmpl_pages_playerView() {
+        return '<section class="page view-player"><h2 data-hook="name"></h2><img data-hook="avatar" width="80" height="80"/><div class="buttons"><a data-hook="edit" class="btn">Edit</a><button data-hook="delete" class="btn">Delete</button></div></section>';
     };
 
     return templatizer;

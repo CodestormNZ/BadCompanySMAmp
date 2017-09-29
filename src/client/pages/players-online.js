@@ -1,11 +1,11 @@
 var PageView = require('./base');
 var templates = require('../templates');
-var PersonView = require('../views/person');
+var PlayerView = require('../views/player');
 
 
 module.exports = PageView.extend({
-  pageTitle: 'collection demo',
-  template: templates.pages.collectionDemo,
+  pageTitle: 'players online',
+  template: templates.pages.playersOnline,
   events: {
     'click [data-hook~=shuffle]': 'shuffle',
     'click [data-hook~=fetch]': 'fetchCollection',
@@ -14,7 +14,7 @@ module.exports = PageView.extend({
   },
   render: function () {
     this.renderWithTemplate();
-    this.renderCollection(this.collection, PersonView, this.queryByHook('people-list'));
+    this.renderCollection(this.collection, PlayerView, this.queryByHook('player-list'));
     if (!this.collection.length) {
       this.fetchCollection();
     }

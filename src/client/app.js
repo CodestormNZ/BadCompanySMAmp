@@ -4,7 +4,7 @@ var config = require('clientconfig');
 var Router = require('./router');
 var MainView = require('./views/main');
 var Me = require('./models/me');
-var People = require('./models/persons');
+var Players = require('./models/players');
 var domReady = require('domready');
 
 // attach our app to `window` so we can
@@ -14,7 +14,7 @@ window.app = app;
 // Extends our main app singleton
 app.extend({
   me: new Me(),
-  people: new People(),
+  players: new Players(),
   router: new Router(),
   // This is where it all starts
   init: function () {

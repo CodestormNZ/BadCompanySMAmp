@@ -1,24 +1,24 @@
 var app = require('ampersand-app');
 var PageView = require('./base');
 var templates = require('../templates');
-var PersonForm = require('../forms/person');
+var PlayerForm = require('../forms/player');
 
 
 module.exports = PageView.extend({
-  pageTitle: 'add person',
-  template: templates.pages.personAdd,
+  pageTitle: 'add player',
+  template: templates.pages.playerAdd,
   subviews: {
     form: {
       container: 'form',
       prepareView: function (el) {
-        return new PersonForm({
+        return new PlayerForm({
           el: el,
           submitCallback: function (data) {
-            app.people.create(data, {
+            app.players.create(data, {
               wait: true,
               success: function () {
-                app.navigate('/collections');
-                app.people.fetch();
+                app.navigate('/players');
+                app.players.fetch();
               }
             });
           }

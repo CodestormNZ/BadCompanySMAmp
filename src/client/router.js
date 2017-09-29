@@ -1,19 +1,19 @@
 var app = require('ampersand-app');
 var Router = require('ampersand-router');
 var HomePage = require('./pages/home');
-var CollectionDemo = require('./pages/collection-demo');
-var PersonAddPage = require('./pages/person-add');
-var PersonEditPage = require('./pages/person-edit');
-var PersonShowPage = require('./pages/person-show');
+var PlayersOnline = require('./pages/players-online');
+var PlayerAddPage = require('./pages/player-add');
+var PlayerEditPage = require('./pages/player-edit');
+var PlayerShowPage = require('./pages/player-show');
 
 
 module.exports = Router.extend({
   routes: {
     '': 'home',
-    'collections': 'collectionDemo',
-    'person/add': 'personAdd',
-    'person/:id': 'personView',
-    'person/:id/edit': 'personEdit',
+    'players': 'playersOnline',
+    'player/add': 'playerAdd',
+    'player/:id': 'playerView',
+    'player/:id/edit': 'playerEdit',
     '(*path)': 'catchAll'
   },
 
@@ -24,25 +24,25 @@ module.exports = Router.extend({
     }));
   },
 
-  collectionDemo: function () {
-    app.trigger('page', new CollectionDemo({
+  playersOnline: function () {
+    app.trigger('page', new PlayersOnline({
       model: app.me,
-      collection: app.people
+      collection: app.players
     }));
   },
 
-  personAdd: function () {
-    app.trigger('page', new PersonAddPage());
+  playerAdd: function () {
+    app.trigger('page', new PlayerAddPage());
   },
 
-  personEdit: function (id) {
-    app.trigger('page', new PersonEditPage({
+  playerEdit: function (id) {
+    app.trigger('page', new PlayerEditPage({
       id: id
     }));
   },
 
-  personView: function (id) {
-    app.trigger('page', new PersonShowPage({
+  playerView: function (id) {
+    app.trigger('page', new PlayerShowPage({
       id: id
     }));
   },
