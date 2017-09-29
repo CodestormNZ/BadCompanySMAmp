@@ -9,53 +9,53 @@ var PersonShowPage = require('./pages/person-show');
 
 
 module.exports = Router.extend({
-    routes: {
-        '': 'home',
-        'collections': 'collectionDemo',
-        'info': 'info',
-        'person/add': 'personAdd',
-        'person/:id': 'personView',
-        'person/:id/edit': 'personEdit',
-        '(*path)': 'catchAll'
-    },
+  routes: {
+    '': 'home',
+    'collections': 'collectionDemo',
+    'info': 'info',
+    'person/add': 'personAdd',
+    'person/:id': 'personView',
+    'person/:id/edit': 'personEdit',
+    '(*path)': 'catchAll'
+  },
 
-    // ------- ROUTE HANDLERS ---------
-    home: function () {
-        app.trigger('page', new HomePage({
-            model: app.me
-        }));
-    },
+  // ------- ROUTE HANDLERS ---------
+  home: function () {
+    app.trigger('page', new HomePage({
+      model: app.me
+    }));
+  },
 
-    collectionDemo: function () {
-        app.trigger('page', new CollectionDemo({
-            model: app.me,
-            collection: app.people
-        }));
-    },
+  collectionDemo: function () {
+    app.trigger('page', new CollectionDemo({
+      model: app.me,
+      collection: app.people
+    }));
+  },
 
-    info: function () {
-        app.trigger('page', new InfoPage({
-            model: app.me
-        }));
-    },
+  info: function () {
+    app.trigger('page', new InfoPage({
+      model: app.me
+    }));
+  },
 
-    personAdd: function () {
-        app.trigger('page', new PersonAddPage());
-    },
+  personAdd: function () {
+    app.trigger('page', new PersonAddPage());
+  },
 
-    personEdit: function (id) {
-        app.trigger('page', new PersonEditPage({
-            id: id
-        }));
-    },
+  personEdit: function (id) {
+    app.trigger('page', new PersonEditPage({
+      id: id
+    }));
+  },
 
-    personView: function (id) {
-        app.trigger('page', new PersonShowPage({
-            id: id
-        }));
-    },
+  personView: function (id) {
+    app.trigger('page', new PersonShowPage({
+      id: id
+    }));
+  },
 
-    catchAll: function () {
-        this.redirectTo('');
-    }
+  catchAll: function () {
+    this.redirectTo('');
+  }
 });

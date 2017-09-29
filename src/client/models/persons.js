@@ -3,6 +3,6 @@ var Person = require('./person');
 
 
 module.exports = Collection.extend({
-    model: Person,
-    url: '/api/people'
+  model: Person,
+  url: '/api/people'
 });
