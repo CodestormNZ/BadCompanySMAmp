@@ -18,7 +18,7 @@
 
     // body.jade compiled template
     templatizer["body"] = function tmpl_body() {
-        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/" class="navbar-brand">Bad Company SM Web UI</a></div><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/players">players</a></li></ul></div></nav><div class="container"><main data-hook="page-container"></main><footer class="footer-main"><nav class="nav-footer cf"><div><a href="" class="nav-item external"> </a></div><div><a href="" class="nav-item external"> </a></div><div><a href="" class="nav-item external"> </a></div></nav></footer></div></body>';
+        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/static/BCM.html" class="navbar-brand">Bad Company SM UI</a></div><ul class="nav navbar-nav"><li><a href="/static/BCM.html/players">Players</a></li><li><a href="/static/BCM.html/console">Console</a></li><li><a href="/static/BCM.html/login">Login</a></li></ul></div></nav><div class="container"><main data-hook="page-container"></main><footer class="footer-main"><nav class="nav-footer cf"><div><a href="https://github.com/7days2mod/" target="_blank" class="nav-item external">7Days2Mod Home</a></div><div><a href="https://github.com/7days2mod/BadCompanySM" target="_blank" class="nav-item external">Bad Company SM</a></div><div><a href="https://7daystodie.com/forums/forum.php" target="_blank" class="nav-item external">Forums</a></div></nav></footer></div></body>';
     };
 
     // head.jade compiled template
@@ -33,12 +33,22 @@
 
     // includes\player.jade compiled template
     templatizer["includes"]["player"] = function tmpl_includes_player() {
-        return '<li class="player list-group-item container"><img data-hook="avatar" width="40" height="40"/><a data-hook="name"></a><span class="btn-group pull-right"> <a data-hook="action-edit" class="btn btn-default">edit </a><a href="#" data-hook="action-delete" class="btn btn-danger">delete</a></span></li>';
+        return '<li class="player list-group-item container"><a data-hook="name" width="150" style="overflow:hidden;"></a><span data-hook="steamid" style="margin-left:10px;"></span><span data-hook="entityid" style="margin-left:10px;"></span><span data-hook="ip" style="margin-left:10px;"></span><span data-hook="ping" style="margin-left:10px;"></span><span data-hook="session" style="margin-left:10px;"></span><span data-hook="playtime" style="margin-left:10px;"></span><span data-hook="online" style="margin-left:10px;"></span><span data-hook="position" style="margin-left:10px;"></span><span data-hook="rotation" style="margin-left:10px;"></span><span data-hook="health" style="margin-left:10px;"></span><span data-hook="stamina" style="margin-left:10px;"></span><span data-hook="wellness" style="margin-left:10px;"></span><span data-hook="food" style="margin-left:10px;"></span><span data-hook="drink" style="margin-left:10px;"></span><span data-hook="coretemp" style="margin-left:10px;"></span><span data-hook="speed" style="margin-left:10px;"></span><span data-hook="isdead" style="margin-left:10px;"></span><span data-hook="level" style="margin-left:10px;"></span><span data-hook="progress" style="margin-left:10px;"></span><span data-hook="tonext" style="margin-left:10px;"></span><span data-hook="fornext" style="margin-left:10px;"></span><span data-hook="gamestage" style="margin-left:10px;"></span><span data-hook="score" style="margin-left:10px;"></span><span data-hook="pkill" style="margin-left:10px;"></span><span data-hook="zkill" style="margin-left:10px;"></span><span data-hook="deaths" style="margin-left:10px;"></span><span data-hook="walked" style="margin-left:10px;"></span><span data-hook="crafted" style="margin-left:10px;"></span><span data-hook="current" style="margin-left:10px;"></span><span data-hook="longest" style="margin-left:10px;"></span></li>';
+    };
+
+    // pages\console.jade compiled template
+    templatizer["pages"]["console"] = function tmpl_pages_console() {
+        return '<section class="page console"><h2>Bad Company SM Web UI</h2><form data-hook="console-form"><fieldset data-hook="field-container"></fieldset><div class="buttons"><button data-hook="reset" type="submit" class="btn">Submit</button></div></form><div data-hook="command"></div><br/><pre data-hook="response"></pre></section>';
     };
 
     // pages\home.jade compiled template
     templatizer["pages"]["home"] = function tmpl_pages_home() {
         return '<section class="page home"><h2>Bad Company SM Web UI</h2></section>';
+    };
+
+    // pages\login.jade compiled template
+    templatizer["pages"]["login"] = function tmpl_pages_login() {
+        return '<section class="page login"><h2>Admin Token Credentials</h2><form data-hook="login-form"><fieldset data-hook="field-container"></fieldset><div class="buttons"><button data-hook="reset" type="submit" class="btn">Submit</button></div></form><br/><br/><div data-hook="steam-login"><span>Steam Login comming soon...</span></div></section>';
     };
 
     // pages\playerAdd.jade compiled template
@@ -53,7 +63,7 @@
 
     // pages\playersOnline.jade compiled template
     templatizer["pages"]["playersOnline"] = function tmpl_pages_playersOnline() {
-        return '<section class="page pageOne"><h2>Players Online</h2><ul data-hook="player-list" class="list-group"></ul><div class="buttons btn-group"><button data-hook="reset" class="btn btn-default">.reset() </button><button data-hook="fetch" class="btn btn-default">.fetch() </button><button data-hook="shuffle" class="btn btn-default">.shuffle() </button><button data-hook="add" class="btn btn-default">.addRandom()</button><a href="/player/add" class="btn btn-default">Add Player</a></div></section>';
+        return '<section class="page pageOne"><h2>Players Online</h2><ul data-hook="player-list" class="list-group"></ul><div class="buttons btn-group"><button data-hook="reset" class="btn btn-default">.reset() </button><button data-hook="fetch" class="btn btn-default">.fetch() </button></div></section>';
     };
 
     // pages\playerView.jade compiled template

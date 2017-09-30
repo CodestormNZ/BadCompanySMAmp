@@ -3,37 +3,47 @@ var AmpersandModel = require('ampersand-model');
 
 module.exports = AmpersandModel.extend({
   props: {
-    id: 'any',
-    firstName: ['string', true, ''],
-    lastName: ['string', true, ''],
-    coolnessFactor: ['number', true, 5]
+    entityid: 'any',
+    Name: 'any',
+    SteamId: 'any',
+    EntityId: 'any',
+    Ip: 'any',
+    Ping: 'any',
+    SessionPlayTime: 'any',
+    TotalPlayTime: 'any',
+    LastOnline: 'any',
+    Position: 'any',
+    Rotation: 'any',
+    Health: 'any',
+    Stamina: 'any',
+    Wellness: 'any',
+    Food: 'any',
+    Drink: 'any',
+    CoreTemp: 'any',
+    SpeedModifier: 'any',
+    IsDead: 'any',
+    Level: 'any',
+    LevelProgress: 'any',
+    ExpToNextLevel: 'any',
+    ExpForNextLevel: 'any',
+    Gamestage: 'any',
+    Score: 'any',
+    KilledPlayers: 'any',
+    KilledZombies: 'any',
+    Deaths: 'any',
+    DistanceWalked: 'any',
+    ItemsCrafted: 'any',
+    CurrentLife: 'any',
+    LongestLife: 'any'
   },
   session: {
     selected: ['boolean', true, false]
   },
   derived: {
-    fullName: {
-      deps: ['firstName', 'lastName'],
-      fn: function () {
-        return this.firstName + ' ' + this.lastName;
-      }
-    },
-    avatar: {
-      deps: ['firstName', 'lastName'],
-      fn: function () {
-        return 'http://robohash.org/' + encodeURIComponent(this.fullName) + '?size=80x80';
-      }
-    },
-    editUrl: {
-      deps: ['id'],
-      fn: function () {
-        return '/player/' + this.id + '/edit';
-      }
-    },
     viewUrl: {
-      deps: ['id'],
+      deps: ['SteamId'],
       fn: function () {
-        return '/player/' + this.id;
+        return '/player/' + this.SteamId;
       }
     }
   }
