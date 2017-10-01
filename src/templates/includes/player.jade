@@ -1,32 +1,154 @@
-li.player.list-group-item.container
-  a(data-hook="name" width="150" style="overflow:hidden;")
-  span(data-hook="steamid" style="margin-left:10px;")
-  span(data-hook="entityid" style="margin-left:10px;")
-  span(data-hook="ip" style="margin-left:10px;")
-  span(data-hook="ping" style="margin-left:10px;")
-  span(data-hook="session" style="margin-left:10px;")
-  span(data-hook="playtime" style="margin-left:10px;")
-  span(data-hook="online" style="margin-left:10px;")
-  span(data-hook="position" style="margin-left:10px;")
-  span(data-hook="rotation" style="margin-left:10px;")
-  span(data-hook="health" style="margin-left:10px;")
-  span(data-hook="stamina" style="margin-left:10px;")
-  span(data-hook="wellness" style="margin-left:10px;")
-  span(data-hook="food" style="margin-left:10px;")
-  span(data-hook="drink" style="margin-left:10px;")
-  span(data-hook="coretemp" style="margin-left:10px;")
-  span(data-hook="speed" style="margin-left:10px;")
-  span(data-hook="isdead" style="margin-left:10px;")
-  span(data-hook="level" style="margin-left:10px;")
-  span(data-hook="progress" style="margin-left:10px;")
-  span(data-hook="tonext" style="margin-left:10px;")
-  span(data-hook="fornext" style="margin-left:10px;")
-  span(data-hook="gamestage" style="margin-left:10px;")
-  span(data-hook="score" style="margin-left:10px;")
-  span(data-hook="pkill" style="margin-left:10px;")
-  span(data-hook="zkill" style="margin-left:10px;")
-  span(data-hook="deaths" style="margin-left:10px;")
-  span(data-hook="walked" style="margin-left:10px;")
-  span(data-hook="crafted" style="margin-left:10px;")
-  span(data-hook="current" style="margin-left:10px;")
-  span(data-hook="longest" style="margin-left:10px;")
+div.col-lg-12.player
+  div.col-xs-12.player-name
+    a.name-link(data-hook="name") 
+    span.entityid()
+      span() &#40;
+      span(data-hook="entityid")
+      span() &#41;
+    span.position()
+      a(data-hook="clipboard") &#64;
+      span() &#32;
+      span(data-hook="position")
+      span(style="color:#428bca;") &#32;&#32;&#8635;&#32;
+      span(data-hook="rotangle")
+      span() &#0176;
+      span(style="color:#428bca;") &#32;&#32;&#8737;&#32;
+      span(data-hook="viewangle")
+    span.life-symbol(data-hook="isalive")
+  div.col-xs-12.player-details
+    div.col-lg-3.col-sm-6()
+      div
+        div.col-xs-6()
+          span() Wellness: 
+        div.col-xs-6.text-right()
+          span(data-hook="wellness")
+      div
+        div.col-xs-6()
+          span() Health: 
+        div.col-xs-6.text-right()
+          span(data-hook="health")
+      div
+        div.col-xs-6()
+          span() Stamina: 
+        div.col-xs-6.text-right()
+          span(data-hook="stamina")
+      div
+        div.col-xs-6()
+          span() Food: 
+        div.col-xs-6.text-right()
+          span(data-hook="food")
+      div
+        div.col-xs-6()
+          span() Drink: 
+        div.col-xs-6.text-right()
+          span(data-hook="drink")
+      div
+        div.col-xs-6()
+          span() Coretemp: 
+        div.col-xs-6.text-right()
+          span(data-hook="coretemp")
+      div
+        div.col-xs-6()
+          span() Speed: 
+        div.col-xs-6.text-right()
+          span(data-hook="speed")
+    
+    div.col-lg-3.col-sm-6()
+      div
+        div.col-xs-6()
+          span() Gamestage: 
+        div.col-xs-6.text-right()
+          span(data-hook="gamestage")
+      div
+        div.col-xs-6()
+          span() Score: 
+        div.col-xs-6.text-right()
+          span(data-hook="score")
+      div
+        div.col-xs-6()
+          span() Player Kills: 
+        div.col-xs-6.text-right()
+          span(data-hook="pkill")
+      div
+        div.col-xs-6()
+          span() Zombie Kills: 
+        div.col-xs-6.text-right()
+          span(data-hook="zkill")
+      div
+        div.col-xs-6()
+          span() Deaths: 
+        div.col-xs-6.text-right()
+          span(data-hook="deaths")
+      div
+        div.col-xs-6()
+          span() Current Life: 
+        div.col-xs-6.text-right()
+          span(data-hook="current")
+      div
+        div.col-xs-6()
+          span() Longest Life: 
+        div.col-xs-6.text-right()
+          span(data-hook="longest")
+
+    div.col-lg-3.col-sm-6()
+      div
+        div.col-xs-6()
+          span() Level: 
+        div.col-xs-6.text-right()
+          span(data-hook="level") 
+          span() &#40;+
+          span(data-hook="progress")
+          span() &#37;&#41;
+      div
+        div.col-xs-6()
+          span() XP Progress: 
+        div.col-xs-6.text-right()
+          span(data-hook="expprogress")
+      div
+        div.col-xs-6()
+          span() Craft Count: 
+        div.col-xs-6.text-right()
+          span(data-hook="crafted")
+      div
+        div.col-xs-6()
+          span() Walked: 
+        div.col-xs-6.text-right()
+          span(data-hook="walked")
+
+    div.col-lg-3.col-sm-6()
+      div
+        div.col-xs-4()
+          div SteamId: 
+        div.col-xs-8.text-right()
+          div
+            span(data-hook="steamid")
+      div
+        div.col-xs-4()
+          div Ip: 
+        div.col-xs-8.text-right()
+          div
+            span(data-hook="ip")
+      div
+        div.col-xs-4()
+          div Session: 
+        div.col-xs-8.text-right()
+          div
+            span(data-hook="session")
+      div
+        div.col-xs-4()
+          div PlayTime: 
+        div.col-xs-8.text-right()
+          div
+            span(data-hook="playtime")
+      div
+        div.col-xs-4()
+          div Ping: 
+        div.col-xs-8.text-right()
+          div
+            span(data-hook="ping")
+      div
+        div.col-xs-4()
+          div IsOnline: 
+        div.col-xs-8.text-right()
+          div
+            span(data-hook="online")

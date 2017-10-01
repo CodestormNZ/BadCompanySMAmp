@@ -8,13 +8,11 @@ module.exports = View.extend({
     'model.Name': '[data-hook~=name]',
     'model.SteamId': '[data-hook~=steamid]',
     'model.EntityId': '[data-hook~=entityid]',
-    'model.Ip': '[data-hook~=ip]',
+    'model.IP': '[data-hook~=ip]',
     'model.Ping': '[data-hook~=ping]',
     'model.SessionPlayTime': '[data-hook~=session]',
     'model.TotalPlayTime': '[data-hook~=playtime]',
-    'model.LastOnline': '[data-hook~=online]',
-    'model.Position': '[data-hook~=position]',
-    'model.Rotation': '[data-hook~=rotation]',
+    'model.LastOnlineLocal': '[data-hook~=online]',
     'model.Health': '[data-hook~=health]',
     'model.Stamina': '[data-hook~=stamina]',
     'model.Wellness': '[data-hook~=wellness]',
@@ -22,7 +20,12 @@ module.exports = View.extend({
     'model.Drink': '[data-hook~=drink]',
     'model.CoreTemp': '[data-hook~=coretemp]',
     'model.SpeedModifier': '[data-hook~=speed]',
-    'model.IsDead': '[data-hook~=isdead]',
+    'model.IsAlive': '[data-hook~=isalive]',
+    'model.IsAliveColor': {
+      type: 'attribute',
+      hook: 'isalive',
+      name: 'style'
+    },
     'model.Level': '[data-hook~=level]',
     'model.LevelProgress': '[data-hook~=progress]',
     'model.ExpToNextLevel': '[data-hook~=tonext]',
@@ -36,11 +39,16 @@ module.exports = View.extend({
     'model.ItemsCrafted': '[data-hook~=crafted]',
     'model.CurrentLife': '[data-hook~=current]',
     'model.LongestLife': '[data-hook~=longest]',
+    'model.ExpProgressForLevel': '[data-hook~=expprogress]',
+
+    'model.Position': '[data-hook~=position]',
+    'model.RotationAngle': '[data-hook~=rotangle]',
+    'model.ViewAngle': '[data-hook~=viewangle]',
 
     'model.viewUrl': {
-    type: 'attribute',
-    hook: 'name',
-    name: 'href'
-  }
+      type: 'attribute',
+      hook: 'name',
+      name: 'href'
+    }
   }
 });

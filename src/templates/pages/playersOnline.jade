@@ -1,9 +1,9 @@
-section.page.pageOne
-  h2 Players Online
+section.page
+  h2.section-title Players Online
 
-  ul.list-group(data-hook="player-list")
+  .buttons.btn-group.pull-right
+    button.btn.btn-default(data-hook="fetch") Refresh
+    button.btn.btn-default(data-hook="sort") Sort
 
-  .buttons.btn-group
-    button.btn.btn-default(data-hook="reset") .reset() 
-    button.btn.btn-default(data-hook="fetch") .fetch() 
+  div.col-md-12(data-hook="player-list")
 

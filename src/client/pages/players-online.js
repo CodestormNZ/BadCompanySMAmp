@@ -1,3 +1,5 @@
+var _ = require("lodash");
+//var $ = require("jquery");
 var PageView = require('./base');
 var templates = require('../templates');
 var PlayerView = require('../views/player');
@@ -8,7 +10,8 @@ module.exports = PageView.extend({
   template: templates.pages.playersOnline,
   events: {
     'click [data-hook~=fetch]': 'fetchCollection',
-    'click [data-hook~=reset]': 'resetCollection'
+    'click [data-hook~=sort]': 'sortCollection',
+    'click [data-hook~=clipboard]': 'copyToClipboard'
   },
   render: function () {
     this.renderWithTemplate();
@@ -21,7 +24,18 @@ module.exports = PageView.extend({
     this.collection.fetch();
     return false;
   },
-  resetCollection: function () {
-    this.collection.reset();
+  sortCollection: function () {
+    this.collection.sort();
+    return false;
+  },
+  copyToClipboard: function (element) {
+    console.log(element);
+
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+    return false;
   }
 });

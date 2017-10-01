@@ -1,0 +1,23 @@
+section.page
+  h2 Players All
+
+  table
+    thead
+      tr
+        th
+          span() Name
+        th
+          span() SteamId
+        th
+          span() EntityId
+        th
+          span() IsOnline
+        th
+          span() LastOnline
+        th
+          span() LastWrite
+    tbody(data-hook="pdf-list")
+
+  .buttons.btn-group
+    button.btn.btn-default(data-hook="reset") .reset() 
+    button.btn.btn-default(data-hook="fetch") .fetch() 

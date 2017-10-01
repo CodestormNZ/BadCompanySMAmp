@@ -4,20 +4,18 @@ var HomePage = require('./pages/home');
 var Console = require('./pages/console');
 var Login = require('./pages/login');
 var PlayersOnline = require('./pages/players-online');
-var PlayerAddPage = require('./pages/player-add');
-var PlayerEditPage = require('./pages/player-edit');
+var PlayersAll = require('./pages/players-all');
 var PlayerShowPage = require('./pages/player-show');
 
 
 module.exports = Router.extend({
   routes: {
     'static/BCM.html': 'home',
-    'static/BCM.html/players': 'playersOnline',
+    'static/BCM.html/online': 'playersOnline',
+    'static/BCM.html/players': 'playersAll',
     'static/BCM.html/player/:id': 'playerView',
     'static/BCM.html/console': 'console',
     'static/BCM.html/login': 'login',
-    'static/BCM.html/player/add': 'playerAdd',
-    'static/BCM.html/player/:id/edit': 'playerEdit',
     '(*path)': 'catchAll'
   },
 
@@ -35,6 +33,13 @@ module.exports = Router.extend({
     }));
   },
 
+  playersAll: function () {
+    app.trigger('page', new PlayersAll({
+      model: app.me,
+      collection: app.pdfs
+    }));
+  },
+
   playerView: function (id) {
     app.trigger('page', new PlayerShowPage({
       id: id
@@ -47,16 +52,6 @@ module.exports = Router.extend({
 
   login: function () {
     app.trigger('page', new Login());
-  },
-
-  playerAdd: function () {
-    app.trigger('page', new PlayerAddPage());
-  },
-
-  playerEdit: function (id) {
-    app.trigger('page', new PlayerEditPage({
-      id: id
-    }));
   },
 
   catchAll: function () {
