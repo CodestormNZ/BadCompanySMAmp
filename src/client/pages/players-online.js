@@ -29,13 +29,13 @@ module.exports = PageView.extend({
     return false;
   },
   copyToClipboard: function (element) {
-    console.log(element);
+    //console.log(element);
 
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val($(element).text()).select();
-    document.execCommand("copy");
-    $temp.remove();
+    //var $temp = $("<input>");
+    //$("body").append($temp);
+    //$temp.val($(element).text()).select();
+    //document.execCommand("copy");
+    //$temp.remove();
     return false;
   }
 });
