@@ -1,59 +1,75 @@
-div.col-lg-12.player
-  div.col-xs-12.player-name
-    a.name-link(data-hook="name") 
-    span.entityid()
-      span() &#40;
-      span(data-hook="entityid")
-      span() &#41;
-    span.position()
-      a(data-hook="clipboard") &#64;
-      span() &#32;
-      span(data-hook="position")
-      span(style="color:#428bca;") &#32;&#32;&#8635;&#32;
-      span(data-hook="rotangle")
-      span() &#0176;
-      span(style="color:#428bca;") &#32;&#32;&#8737;&#32;
-      span(data-hook="viewangle")
-    span.life-symbol(data-hook="isalive")
-  div.col-xs-12.player-details
-    div.col-lg-3.col-sm-6()
-      div
-        div.col-xs-6()
-          span() Wellness: 
-        div.col-xs-6.text-right()
-          span(data-hook="wellness")
-      div
-        div.col-xs-6()
-          span() Health: 
-        div.col-xs-6.text-right()
-          span(data-hook="health")
-      div
-        div.col-xs-6()
-          span() Stamina: 
-        div.col-xs-6.text-right()
-          span(data-hook="stamina")
-      div
-        div.col-xs-6()
-          span() Food: 
-        div.col-xs-6.text-right()
-          span(data-hook="food")
-      div
-        div.col-xs-6()
-          span() Drink: 
-        div.col-xs-6.text-right()
-          span(data-hook="drink")
-      div
-        div.col-xs-6()
-          span() Coretemp: 
-        div.col-xs-6.text-right()
-          span(data-hook="coretemp")
-      div
-        div.col-xs-6()
-          span() Speed: 
-        div.col-xs-6.text-right()
-          span(data-hook="speed")
+div.col-xs-12.player
+  div.col-md-6.player-name
     
-    div.col-lg-3.col-sm-6()
+    div
+      div
+        a.name-link(data-hook="name") 
+      div
+        span.entityid()
+          | &#40;
+          a.hoverlink(data-hook="entityid" title="click to copy to clipboard")
+          | &#41;
+        | &#32;
+        span.steamid()
+          | &#40;
+          a.hoverlink(data-hook="steamid" title="click to copy to clipboard")
+          | &#41;
+    
+    div
+      div.div-inline
+        div.div-inline
+          div()
+            span.stat-health.pad-left-10() H:
+            span(data-hook="health")
+            span /
+            span(data-hook="wellness")
+          div.stat-bar.bar-bg()
+            div.stat-bar.bar-health(data-hook="health-bar")
+      
+        div.div-inline
+          div()
+            span.stat-stamina.pad-left-10() S:
+            span(data-hook="stamina")
+            span /
+            span(data-hook="wellness")
+          div.stat-bar.bar-bg()
+            div.stat-bar.bar-stamina(data-hook="stamina-bar")
+
+      div.div-inline
+        div.div-inline
+          div()
+            span.stat-food.pad-left-10() F:
+            span(data-hook="food")
+            span /100
+          div.stat-bar.bar-bg()
+            div.stat-bar.bar-food(data-hook="food-bar")
+
+        div.div-inline
+          div()
+            span.stat-drink.pad-left-10() D:
+            span(data-hook="drink")
+            span /100
+          div.stat-bar.bar-bg()
+            div.stat-bar.bar-drink(data-hook="drink-bar")
+    
+    div
+      span.position()
+        a.hoverlink(data-hook="copypos" title="click to copy to clipboard") &#64;
+        span() &#32;
+        span(data-hook="position")
+        span(style="color:#428bca;") &#32;&#32;&#8635;&#32;
+        span(data-hook="rotangle")
+        span() &#0176;
+        span(style="color:#428bca;") &#32;&#32;&#8737;&#32;
+        span(data-hook="viewangle")
+      span.coretemp
+        | T:
+        span(data-hook="coretemp")
+        span() &#8457;
+      span.life-symbol(data-hook="isalive")
+    
+  div.col-md-6.player-details
+    div()
       div
         div.col-xs-6()
           span() Gamestage: 
@@ -90,15 +106,14 @@ div.col-lg-12.player
         div.col-xs-6.text-right()
           span(data-hook="longest")
 
-    div.col-lg-3.col-sm-6()
       div
         div.col-xs-6()
           span() Level: 
         div.col-xs-6.text-right()
           span(data-hook="level") 
-          span() &#40;+
+          |  &#40;+
           span(data-hook="progress")
-          span() &#37;&#41;
+          | &#37;&#41;
       div
         div.col-xs-6()
           span() XP Progress: 
@@ -114,14 +129,12 @@ div.col-lg-12.player
           span() Walked: 
         div.col-xs-6.text-right()
           span(data-hook="walked")
-
-    div.col-lg-3.col-sm-6()
       div
-        div.col-xs-4()
-          div SteamId: 
-        div.col-xs-8.text-right()
-          div
-            span(data-hook="steamid")
+        div.col-xs-6()
+          span() Speed: 
+        div.col-xs-6.text-right()
+          span(data-hook="speed")
+
       div
         div.col-xs-4()
           div Ip: 
@@ -148,7 +161,7 @@ div.col-lg-12.player
             span(data-hook="ping")
       div
         div.col-xs-4()
-          div IsOnline: 
+          div LastOnline: 
         div.col-xs-8.text-right()
           div
             span(data-hook="online")

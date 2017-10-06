@@ -40,6 +40,11 @@ module.exports = View.extend({
 
         // store an additional reference, just because
         app.currentPage = newView;
+      },
+      hide: function(oldView) {
+        if (oldView != null && oldView.isPolling != null) {
+          oldView.isPolling = false;
+        }
       }
     });
 

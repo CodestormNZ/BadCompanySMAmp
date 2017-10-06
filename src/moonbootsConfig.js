@@ -17,10 +17,11 @@ module.exports = {
   appPath: '/{p*}',
   // The moonboots config
   moonboots: {
+    //buildDirectory: '/build', //for moonboots-static
     // The base name of the javascript file served in the <script src="the_name.*.js">
-    jsFileName: 'bad-company-sm-web-ui',
+    jsFileName: 'bcm',
     // The base name of the css file served in the <link rel="stylesheet" src="the_name.*.css">
-    cssFileName: 'bad-company-sm-web-ui',
+    cssFileName: 'bcm',
     main: appDir + '/app.js',
     developmentMode: config.isDev,
     // Specify any non-commonjs libraries we wish to include.

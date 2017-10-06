@@ -11,34 +11,49 @@ body
   color: #970000
 
 .player
-  margin-bottom: 10px
+  margin: 4px
+  padding: 4px
+  border-top: 1px solid #800
+  border-right: 1px solid #800
+  border-bottom: 1px solid #800
+  border-left: 1px solid #800
+  border-top-right-radius: 6px
+  border-top-left-radius: 6px
+  //margin-bottom: 10px
 
 .player-name
-  color: #ffffff
   padding: 8px 10px
-  border-top-left-radius: 6px
-  border-top-right-radius: 6px
-  font-weight: bold;
-  background: linear-gradient(to bottom, #f89a9f 0%,#94080f 50%,#760006 51%,#e02e37 100%)
+  min-height: 34px
 
   .name-link
-    font-size: 18px
-    color: #cfcfff
-    padding-right: 10px
+    color: #428bca
+    font-weight: bold
+    font-size: 24px
+    color: #428bca
+    min-height: 34px
 
   .life-symbol
+    font-size: 0.8em
     font-weight: bold
-    //font-size: 18px
-    padding-left: 10px
+    padding-left: 6px
+    min-height: 34px
 
   .entityid
     font-style: italic
-    padding-left: 10px
+    padding-left: 6px
+    min-height: 34px
+
+  .coretemp
+    font-size: 0.8em
+    padding-left: 6px
+    min-height: 34px
 
   .position
     font-style: italic
+    font-size: 0.8em
     white-space: nowrap
-    padding-left: 10px
+    padding-left: 6px
+    min-height: 34px
 
 .player-details
   background-color: #ffffff
@@ -46,3 +61,71 @@ body
   font-size: 1em
   margin: 0 auto
   color: #828c8f
+
+.pad-left-10 {
+  padding-left: 10px
+}
+
+.stat-health {
+  color: #ff0000
+}
+
+.stat-stamina {
+  color: #0000ff
+}
+
+.stat-food {
+  color: #4caf50
+}
+
+.stat-drink {
+  color: #64b5f6
+}
+
+.hoverlink {
+  cursor: pointer
+}
+
+.hoverlink:hover {
+  text-decoration: none
+  cursor: pointer
+}
+
+.stat-bar {
+  height: 5px
+  display: inline-block
+  margin-right: 5px
+}
+
+  .bar-bg {
+    background-color: #cfcfcf
+    width: 80px
+  }
+
+  .bar-health {
+    background-color: #ff0000
+    width: 0px
+    vertical-align: top
+  }
+
+  .bar-stamina {
+    background-color: #0000ff
+    width: 0px
+    vertical-align: top
+  }
+
+  .bar-food {
+    background-color: #4caf50
+    width: 0px
+    vertical-align: top
+  }
+
+  .bar-drink {
+    background-color: #64b5f6
+    width: 0px
+    vertical-align: top
+  }
+
+.div-inline {
+  display: inline-block
+}

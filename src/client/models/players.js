@@ -7,9 +7,19 @@ module.exports = Collection.extend({
   comparator: function (collection) {
     return (collection.get('EntityId'));
   },
-  url: '/api/executeconsolecommand?adminuser=stompynz&admintoken=thisisatoken&raw=true&' +
-    'command=bc-lp /all /filter=steamid,name,entityid,ip,ping,session,playtime,online,position,rotation,health,stamina,wellness,food,drink,coretemp,speed,isdead,level,progress,tonext,fornext,gamestage,score,pkill,zkill,deaths,walked,crafted,current,longest'
-  //url: '/api/executeconsolecommand?adminuser=' + window.app.me.adminName + '&admintoken=' + window.app.me.adminToken + '&raw=true&' +
-  //  'command=bc-lp /all /filter=steamid,name,entityid,ip,ping,session,playtime,online,position,rotation,health,stamina,wellness,food,drink,coretemp,speed,isdead,level,progress,tonext,fornext,gamestage,score,pkill,zkill,deaths,walked,crafted,current,longest'
-
+  url: function () {
+    //'steamid,name,entityid,ip,ping,session,playtime,online,position,rotation,health,stamina,wellness,food,drink,coretemp,speed,isdead,level,progress,tonext,fornext,gamestage,score,pkill,zkill,deaths,walked,crafted,current,longest'
+    if (window.app.me.adminName !== '') {
+      return '/api/executeconsolecommand?raw=true' +
+        '&adminuser=' + window.app.me.adminName +
+        '&admintoken=' + window.app.me.adminToken +
+        '&command=bc-lp /online /filter=' +
+        '0,1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,17,19,23,24,25,26,27,28,29,30,31,32,33,34,35';
+    } else {
+      //todo: steam login check
+      return '/api/executeconsolecommand?raw=true' +
+        '&command=bc-lp /online /filter=' +
+        '0,1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,17,19,23,24,25,26,27,28,29,30,31,32,33,34,35';
+    }
+  }
 });

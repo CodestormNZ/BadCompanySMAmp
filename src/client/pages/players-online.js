@@ -1,17 +1,17 @@
-var _ = require("lodash");
-//var $ = require("jquery");
 var PageView = require('./base');
 var templates = require('../templates');
 var PlayerView = require('../views/player');
 
 
 module.exports = PageView.extend({
-  pageTitle: 'players online',
+  pageTitle: 'Players Online',
   template: templates.pages.playersOnline,
   events: {
     'click [data-hook~=fetch]': 'fetchCollection',
-    'click [data-hook~=sort]': 'sortCollection',
-    'click [data-hook~=clipboard]': 'copyToClipboard'
+    'click [data-hook~=sort]': 'sortCollection'
+  },
+  props: {
+    isPolling: 'boolean'
   },
   render: function () {
     this.renderWithTemplate();
@@ -19,6 +19,8 @@ module.exports = PageView.extend({
     if (!this.collection.length) {
       this.fetchCollection();
     }
+    this.isPolling = true;
+    this.pollForData();
   },
   fetchCollection: function () {
     this.collection.fetch();
@@ -28,14 +30,13 @@ module.exports = PageView.extend({
     this.collection.sort();
     return false;
   },
-  copyToClipboard: function (element) {
-    //console.log(element);
-
-    //var $temp = $("<input>");
-    //$("body").append($temp);
-    //$temp.val($(element).text()).select();
-    //document.execCommand("copy");
-    //$temp.remove();
-    return false;
+  pollForData: function () {
+    var _self = this;
+    setTimeout(function () {
+      if (_self.isPolling) {
+        _self.fetchCollection();
+        _self.pollForData();
+      }
+    }, 1000);
   }
 });

@@ -11,7 +11,7 @@ var domReady = require('domready');
 window.app = app;
 
 app.extend({
-  me: new Me(),
+  me: new Me().load(),
   players: new Players(),
   pdfs: new Pdfs(),
   router: new Router(),
@@ -22,10 +22,11 @@ app.extend({
     });
 
     this.router.history.start({ pushState: true });
-  },
 
+    this.me.on('change', this.me.debouncedWriteToCache);
+  },
   navigate: function (page) {
-    var url = (page.charAt(0) === '/') ? page.slice(1) : page;
+    const url = (page.charAt(0) === '/') ? page.slice(1) : page;
     this.router.history.navigate(url, {
       trigger: true
     });

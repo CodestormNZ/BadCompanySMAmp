@@ -16,6 +16,9 @@ module.exports = PageView.extend({
     },
     'model.adminToken': {
       hook: 'adminToken'
+    },
+    'model.hasCredentials': {
+      hook: 'credentials'
     }
   },
   subviews: {
@@ -30,6 +33,7 @@ module.exports = PageView.extend({
           submitCallback: function (data) {
             model.adminName = data.adminName;
             model.adminToken = data.adminToken;
+            //todo: check if login grants access on game server
           }
         });
       }

@@ -16,7 +16,7 @@ module.exports = Router.extend({
     'static/BCM.html/player/:id': 'playerView',
     'static/BCM.html/console': 'console',
     'static/BCM.html/login': 'login',
-    '(*path)': 'catchAll'
+    'static/BCM.html(*path)': 'catchAll'
   },
 
   // ------- ROUTE HANDLERS ---------
@@ -55,6 +55,6 @@ module.exports = Router.extend({
   },
 
   catchAll: function () {
-    this.redirectTo('static/BCM.html');
+    this.redirectTo('static/BCM.html/');
   }
 });
