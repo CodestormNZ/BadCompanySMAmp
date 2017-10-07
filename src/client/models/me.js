@@ -61,9 +61,6 @@ module.exports = AmpersandModel.extend({
   },
   initialize() {
     this.debouncedWriteToCache = _.debounce(this.writeToCache, 250);
-
-    console.log(window.location);
-
     this.pollrate = 5000;
     this.isPolling = true;
     this.fetchData();
