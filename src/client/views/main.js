@@ -9,7 +9,10 @@ var _ = require('lodash');
 var domify = require('domify');
 var localLinks = require('local-links');
 var templates = require('../templates');
+//var GameTime = require('./models/gametime');
 
+//todo:  gametime
+//    var gametime = new GameTime();
 
 module.exports = View.extend({
   template: templates.body,
@@ -32,7 +35,7 @@ module.exports = View.extend({
     this.pageSwitcher = new ViewSwitcher(this.queryByHook('page-container'), {
       show: function (newView, oldView) {
         // it's inserted and rendered for me
-        document.title = _.result(newView, 'pageTitle') || 'Bad Company SM Web UI';
+        document.title = `BCM Web UI - ${_.result(newView, 'pageTitle')}`;
         document.scrollTop = 0;
 
         // add a class specifying it's active
@@ -50,6 +53,7 @@ module.exports = View.extend({
 
     // setting a favicon for fun (note, it's dynamic)
     setFavicon('/favicon.ico');
+
     return this;
   },
 

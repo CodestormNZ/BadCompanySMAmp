@@ -19,7 +19,7 @@ module.exports = View.extend({
     'model.Ping': '[data-hook~=ping]',
     'model.SessionPlayTime': '[data-hook~=session]',
     'model.TotalPlayTime': '[data-hook~=playtime]',
-    'model.LastOnlineLocal': '[data-hook~=online]',
+//    'model.LastOnlineLocal': '[data-hook~=online]',
     'model.Health': '[data-hook~=health]',
     'model.HealthBar': {
       type: 'attribute',
@@ -46,7 +46,7 @@ module.exports = View.extend({
       name: 'style'
     },
     'model.CoreTemp': '[data-hook~=coretemp]',
-    'model.SpeedModifier': '[data-hook~=speed]',
+    'model.SpeedPercent': '[data-hook~=speed]',
     'model.IsAlive': '[data-hook~=isalive]',
     'model.IsAliveColor': {
       type: 'attribute',
@@ -62,6 +62,7 @@ module.exports = View.extend({
     'model.LevelProgress': '[data-hook~=progress]',
     'model.ExpToNextLevel': '[data-hook~=tonext]',
     'model.ExpForNextLevel': '[data-hook~=fornext]',
+
     'model.Gamestage': '[data-hook~=gamestage]',
     'model.Score': '[data-hook~=score]',
     'model.KilledPlayers': '[data-hook~=pkill]',
@@ -71,20 +72,27 @@ module.exports = View.extend({
     'model.ItemsCrafted': '[data-hook~=crafted]',
     'model.CurrentLife': '[data-hook~=current]',
     'model.LongestLife': '[data-hook~=longest]',
+
     'model.ExpProgressForLevel': '[data-hook~=expprogress]',
+    'model.ExpProgress': '[data-hook~=exp-progress]',
+    'model.ExpProgressBar': {
+      type: 'attribute',
+      hook: 'exp-progress-bar',
+      name: 'style'
+    },
 
     'model.Position': '[data-hook~=position]',
     'model.RotationAngle': '[data-hook~=rotangle]',
-    'model.ViewAngle': '[data-hook~=viewangle]',
+    'model.ViewAngle': '[data-hook~=viewangle]'
 
-    'model.viewUrl': {
-      type: 'attribute',
-      hook: 'name',
-      name: 'href'
-    }
+    //'model.viewUrl': {
+    //  type: 'attribute',
+    //  hook: 'name',
+    //  name: 'href'
+    //}
   },
   clipboardPosition: function () {
-    var $temp = $("<input>");
+    const $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(this.queryByHook('position')).text()).select();
     document.execCommand("copy");
@@ -92,7 +100,7 @@ module.exports = View.extend({
     return false;
   },
   clipboardEntityId: function () {
-    var $temp = $("<input>");
+    const $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(this.queryByHook('entityid')).text()).select();
     document.execCommand("copy");
@@ -100,7 +108,7 @@ module.exports = View.extend({
     return false;
   },
   clipboardSteamId: function () {
-    var $temp = $("<input>");
+    const $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(this.queryByHook('steamid')).text()).select();
     document.execCommand("copy");

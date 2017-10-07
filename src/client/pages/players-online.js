@@ -6,12 +6,10 @@ var PlayerView = require('../views/player');
 module.exports = PageView.extend({
   pageTitle: 'Players Online',
   template: templates.pages.playersOnline,
-  events: {
-    'click [data-hook~=fetch]': 'fetchCollection',
-    'click [data-hook~=sort]': 'sortCollection'
-  },
   props: {
-    isPolling: 'boolean'
+    isPolling: 'boolean',
+    cooldown: 'number',
+    baseDelay: 'number'
   },
   render: function () {
     this.renderWithTemplate();
@@ -19,11 +17,17 @@ module.exports = PageView.extend({
     if (!this.collection.length) {
       this.fetchCollection();
     }
+    window.app.players.baseDelay = 4000;
+    window.app.players.cooldown = 1;
     this.isPolling = true;
     this.pollForData();
   },
   fetchCollection: function () {
-    this.collection.fetch();
+    if (window.app.me.hasLogin || (window.app.me.adminName != null && window.app.me.adminName !== '')) {
+      this.collection.fetch({ success: this.successCallBack, error: this.errorCallBack });
+    } else {
+      //todo: notify of no login
+    }
     return false;
   },
   sortCollection: function () {
@@ -32,11 +36,23 @@ module.exports = PageView.extend({
   },
   pollForData: function () {
     var _self = this;
+
     setTimeout(function () {
       if (_self.isPolling) {
         _self.fetchCollection();
         _self.pollForData();
       }
-    }, 1000);
+    }, window.app.players.baseDelay * window.app.players.cooldown);
+  },
+  successCallBack: function (model, response, options) {
+    //todo: notify of update
+    model.cooldown = 1;
+  },
+  errorCallBack: function (model, response, options) {
+    //todo: notify of error
+    if (this.app.players) {
+      this.app.players.reset();
+    }
+    model.cooldown = 10;
   }
 });

@@ -1,32 +1,74 @@
 var AmpersandModel = require('ampersand-model');
+var xhr = require("xhr");
 var _ = require('lodash');
-//import debounce from 'lodash.debounce';
 
 
 module.exports = AmpersandModel.extend({
   type: 'user',
   props: {
-    steamId: ['string'],
-    userName: ['string', false, ''],
-    adminName: ['string', true, ''],
-    adminToken: ['string', true, ''],
+    adminName: ['string'],
+    adminToken: ['string'],
 
-    access_token: 'string',
-    refresh_token: 'string',
-    expires_in: 'number',
-    token_created: 'date',
-    profileID: 'string'
+    hasLogin: ['boolean'],
+    steamId: ['string'],
+    permissions: ['object'],
+
+    pollrate: ['number'],
+    isPolling: ['boolean'],
+
+    serverProtocol: ['string', true, 'http://'],
+    //todo: location.hostname
+    serverIP: ['string', true, '192.168.145.240'],//location.hostname
+    serverPort: ['string', true, '8082'],
+    apiEndPoint: ['string', true, '/userstatus']
   },
   derived: {
-    hasCredentials: {
-      deps: ['adminUser', 'adminToken'],
+    urlEndPoint: {
       fn: function () {
-        return this.adminName !== '' || this.adminToken !== '' ? `Token set for username ${this.adminName}` : "";
+        return this.serverProtocol + this.serverIP + ':' + this.serverPort + this.apiEndPoint;
+      }
+    },
+    hasCredentials: {
+      deps: ['adminUser', 'hasLogin', 'steamId'],
+      fn: function () {
+        if (this.hasLogin) {
+          return `SteamId: ${this.steamId}`;
+        } else if (this.adminName !== '') {
+          return `AdminName: ${this.adminName}`;
+        }
+        return '';
+      }
+    },
+    login: {
+      deps: ['hasLogin'],
+      fn: function () {
+        if (this.hasLogin) {
+          return "display:" + "none";
+        } else {
+          return "display:" + "unset";
+        }
+      }
+    },
+    logout: {
+      deps: ['hasLogin'],
+      fn: function () {
+        if (this.hasLogin) {
+          return "display:" + "unset";
+        } else {
+          return "display:" + "none";
+        }
       }
     }
   },
   initialize() {
     this.debouncedWriteToCache = _.debounce(this.writeToCache, 250);
+
+    console.log(window.location);
+
+    this.pollrate = 5000;
+    this.isPolling = true;
+    this.fetchData();
+    this.pollForData();
   },
   writeToCache() {
     const data = JSON.stringify(this);
@@ -38,6 +80,39 @@ module.exports = AmpersandModel.extend({
       const loaded = JSON.parse(data);
       this.set(loaded);
     }
+
     return this;
+  },
+  pollForData: function () {
+    var _self = this;
+    setTimeout(function () {
+      if (_self.isPolling) {
+        _self.fetchData();
+        _self.pollForData();
+      }
+    }, _self.pollrate);
+  },
+  fetchData: function () {
+    const _self = this;
+    xhr({
+      body: '',
+      uri: _self.urlEndPoint,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }, function (err, resp, body) {
+      if (resp.statusCode) {
+        try {
+          const _usr = JSON.parse(body);
+          window.app.me.steamId = _usr.username;
+          window.app.me.hasLogin = _usr.loggedin;
+          window.app.me.permissions = _usr.permissions;
+        } catch (e) {
+          console.log("error", e);
+        }
+      } else {
+        console.log("error", resp.error);
+      }
+    });
   }
 });

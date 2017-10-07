@@ -1,6 +1,5 @@
-div.col-xs-12.player
-  div.col-md-6.player-name
-    
+div.player
+  div.player-name
     div
       div
         a.name-link(data-hook="name") 
@@ -14,7 +13,8 @@ div.col-xs-12.player
           | &#40;
           a.hoverlink(data-hook="steamid" title="click to copy to clipboard")
           | &#41;
-    
+  
+  div.player-details
     div
       div.div-inline
         div.div-inline
@@ -63,105 +63,50 @@ div.col-xs-12.player
         span(style="color:#428bca;") &#32;&#32;&#8737;&#32;
         span(data-hook="viewangle")
       span.coretemp
-        | T:
+        span(style="color:#428bca;") t&#32;
         span(data-hook="coretemp")
         span() &#8457;
       span.life-symbol(data-hook="isalive")
-    
-  div.col-md-6.player-details
-    div()
-      div
-        div.col-xs-6()
-          span() Gamestage: 
-        div.col-xs-6.text-right()
-          span(data-hook="gamestage")
-      div
-        div.col-xs-6()
-          span() Score: 
-        div.col-xs-6.text-right()
-          span(data-hook="score")
-      div
-        div.col-xs-6()
-          span() Player Kills: 
-        div.col-xs-6.text-right()
-          span(data-hook="pkill")
-      div
-        div.col-xs-6()
-          span() Zombie Kills: 
-        div.col-xs-6.text-right()
-          span(data-hook="zkill")
-      div
-        div.col-xs-6()
-          span() Deaths: 
-        div.col-xs-6.text-right()
-          span(data-hook="deaths")
-      div
-        div.col-xs-6()
-          span() Current Life: 
-        div.col-xs-6.text-right()
-          span(data-hook="current")
-      div
-        div.col-xs-6()
-          span() Longest Life: 
-        div.col-xs-6.text-right()
-          span(data-hook="longest")
-
-      div
-        div.col-xs-6()
-          span() Level: 
-        div.col-xs-6.text-right()
+      span.life-span.pad-left-5()
+        span(data-hook="current")
+        span() /
+        span(data-hook="longest")
+    div.div-inline
+      div()
+        span.stat-exp.pad-left-10() Lvl: 
           span(data-hook="level") 
           |  &#40;+
-          span(data-hook="progress")
+          span.level-progress(data-hook="progress")
           | &#37;&#41;
-      div
-        div.col-xs-6()
-          span() XP Progress: 
-        div.col-xs-6.text-right()
+        span.level-progress.pad-left-10() XP:
           span(data-hook="expprogress")
-      div
-        div.col-xs-6()
-          span() Craft Count: 
-        div.col-xs-6.text-right()
-          span(data-hook="crafted")
-      div
-        div.col-xs-6()
-          span() Walked: 
-        div.col-xs-6.text-right()
-          span(data-hook="walked")
-      div
-        div.col-xs-6()
-          span() Speed: 
-        div.col-xs-6.text-right()
-          span(data-hook="speed")
+      div.stat-bar.bar-bg.bg-240()
+        div.stat-bar.bar-exp(data-hook="exp-progress-bar")
 
-      div
-        div.col-xs-4()
-          div Ip: 
-        div.col-xs-8.text-right()
-          div
-            span(data-hook="ip")
-      div
-        div.col-xs-4()
-          div Session: 
-        div.col-xs-8.text-right()
-          div
-            span(data-hook="session")
-      div
-        div.col-xs-4()
-          div PlayTime: 
-        div.col-xs-8.text-right()
-          div
-            span(data-hook="playtime")
-      div
-        div.col-xs-4()
-          div Ping: 
-        div.col-xs-8.text-right()
-          div
-            span(data-hook="ping")
-      div
-        div.col-xs-4()
-          div LastOnline: 
-        div.col-xs-8.text-right()
-          div
-            span(data-hook="online")
+    div
+      span.pad-left-5() Crft: 
+        span(data-hook="crafted")
+      span.pad-left-5() Wlk: 
+        span(data-hook="walked")
+      span.pad-left-5() Spd: 
+        span(data-hook="speed")
+      span.pad-left-5() PlayTime: 
+        span(data-hook="playtime")
+    div
+      span.pad-left-5() GS: 
+        span(data-hook="gamestage")
+      span.pad-left-5() Sc: 
+        span(data-hook="score")
+      span.pad-left-5() PK: 
+        span(data-hook="pkill")
+      span.pad-left-5() ZK: 
+        span(data-hook="zkill")
+      span.pad-left-5() Dth: 
+        span(data-hook="deaths")
+    div
+      span.pad-left-5() Ip: 
+        span(data-hook="ip")
+      span.pad-left-5() Sess: 
+        span(data-hook="session")
+      span.pad-left-5() Png: 
+        span(data-hook="ping")

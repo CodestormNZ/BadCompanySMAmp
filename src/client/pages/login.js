@@ -7,7 +7,7 @@ module.exports = PageView.extend({
   pageTitle: 'login',
   template: templates.pages.login,
   initialize: function (spec) {
-    var self = this;
+    const self = this;
     self.model = window.app.me;
   },
   bindings: {
@@ -19,6 +19,16 @@ module.exports = PageView.extend({
     },
     'model.hasCredentials': {
       hook: 'credentials'
+    },
+    'model.login': {
+      type: 'attribute',
+      hook: 'steam-login',
+      name: 'style'
+    },
+    'model.logout': {
+      type: 'attribute',
+      hook: 'steam-logout',
+      name: 'style'
     }
   },
   subviews: {
@@ -33,10 +43,20 @@ module.exports = PageView.extend({
           submitCallback: function (data) {
             model.adminName = data.adminName;
             model.adminToken = data.adminToken;
+
             //todo: check if login grants access on game server
           }
         });
       }
     }
+  },
+  events: {
+    'click [data-hook~=clear-button]': 'resetToken'
+  },
+  resetToken: function () {
+    window.app.me.adminName = '';
+    window.app.me.adminToken = '';
+
+    //this.subviews.form.reset();
   }
 });

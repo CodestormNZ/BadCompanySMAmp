@@ -4,6 +4,7 @@ var AmpersandModel = require('ampersand-model');
 module.exports = AmpersandModel.extend({
   props: {
     serverProtocol: ['string', true, 'http://'],
+    //todo:
     serverIP: ['string', true, '192.168.145.240'],//location.hostname
     serverPort: ['string', true, '8082'],
     apiEndPoint: ['string', true, '/api/executeconsolecommand'],
@@ -15,9 +16,9 @@ module.exports = AmpersandModel.extend({
   url: function () {
     return this.urlEndPoint;
   },
-  session: {
-    selected: ['boolean', true, false]
-  },
+  //session: {
+  //  selected: ['boolean', true, false]
+  //},
   derived: {
     urlEndPoint: {
       deps: ['adminToken', 'adminPassword', 'command'],

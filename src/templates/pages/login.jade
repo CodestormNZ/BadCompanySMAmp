@@ -6,9 +6,17 @@ section.page.login
   form(data-hook="login-form")
     fieldset(data-hook="field-container")
     .buttons
-      button.btn(data-hook="login", type="submit") Submit
+      button.btn(data-hook="login-button" type="submit") Submit
+
+  button.btn(data-hook="clear-button") Clear
 
   br
 
-  div(data-hook="steam-login")
-    span() Steam Login comming soon...
+  div()
+    div() Steam Open ID
+    div
+      a(data-hook="steam-login" href="/session/login" target="_blank")
+        img(src="/static/img/steamlogin.png" title="Sign in through Steam")
+    div
+      a(data-hook="steam-logout" href="/session/logout" target="_blank") Logout
+      

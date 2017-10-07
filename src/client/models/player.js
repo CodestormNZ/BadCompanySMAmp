@@ -10,7 +10,7 @@ module.exports = AmpersandModel.extend({
     Ping: 'string',
     SessionPlayTime: 'number',
     TotalPlayTime: 'number',
-    LastOnline: 'date',
+    //LastOnline: 'date',
     Position: 'string',
     Rotation: 'string',
     Health: 'number',
@@ -44,25 +44,37 @@ module.exports = AmpersandModel.extend({
     HealthBar: {
       deps: ['Health', 'Wellness'],
       fn: function () {
-        return "width:" + this.Health / this.Wellness * this.StatBarWidth + "px";
+        return `width:${this.Health / this.Wellness * this.StatBarWidth}px`;
       }
     },
     StaminaBar: {
       deps: ['Stamina', 'Wellness'],
       fn: function () {
-        return "width:" + this.Stamina / this.Wellness * this.StatBarWidth + "px";
+        return `width:${this.Stamina / this.Wellness * this.StatBarWidth}px`;
       }
     },
     FoodBar: {
       deps: ['Food'],
       fn: function () {
-        return "width:" + this.Food / 100 * this.StatBarWidth + "px";
+        return `width:${this.Food / 100 * this.StatBarWidth}px`;
       }
     },
     DrinkBar: {
       deps: ['Drink'],
       fn: function () {
-        return "width:" + this.Drink / 100 * this.StatBarWidth + "px";
+        return `width:${this.Drink / 100 * this.StatBarWidth}px`;
+      }
+    },
+    ExpProgressBar: {
+      deps: ['ExpToNextLevel', 'ExpForNextLevel'],
+      fn: function () {
+        return `width:${(this.ExpForNextLevel - this.ExpToNextLevel) / this.ExpForNextLevel * this.StatBarWidth * 3}px`;
+      }
+    },
+    SpeedPercent: {
+      deps: ['SpeedModifier'],
+      fn: function() {
+        return this.SpeedModifier * 100 + '%';
       }
     },
     IsAlive: {
@@ -112,32 +124,32 @@ module.exports = AmpersandModel.extend({
         }
       }
     },
-    LastOnlineLocal: {
-      deps: ['LastOnline'],
-      fn: function () {
-        var d = this.LastOnline;
-        if (d != null) {
-          return d.getFullYear() +
-            "-" +
-            (d.getMonth() + 1) +
-            "-" +
-            d.getDate() +
-            " " +
-            d.getHours() +
-            ":" +
-            d.getMinutes() +
-            ":" +
-            d.getSeconds();
-        } else {
-          return null;
-        }
-      }
-    },
-    viewUrl: {
-      deps: ['SteamId'],
-      fn: function () {
-        return '/player/' + this.SteamId;
-      }
-    }
+    //LastOnlineLocal: {
+    //  deps: ['LastOnline'],
+    //  fn: function () {
+    //    var d = this.LastOnline;
+    //    if (d != null) {
+    //      return d.getFullYear() +
+    //        "-" +
+    //        (d.getMonth() + 1) +
+    //        "-" +
+    //        d.getDate() +
+    //        " " +
+    //        d.getHours() +
+    //        ":" +
+    //        d.getMinutes() +
+    //        ":" +
+    //        d.getSeconds();
+    //    } else {
+    //      return null;
+    //    }
+    //  }
+    //},
+    //viewUrl: {
+    //  deps: ['SteamId'],
+    //  fn: function () {
+    //    return '/player/' + this.SteamId;
+    //  }
+    //}
   }
 });
