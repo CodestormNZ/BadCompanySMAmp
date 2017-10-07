@@ -16,10 +16,9 @@ module.exports = AmpersandModel.extend({
     pollrate: ['number'],
     isPolling: ['boolean'],
 
-    serverProtocol: ['string', true, 'http://'],
-    //todo: location.hostname
-    serverIP: ['string', true, '192.168.145.240'],//location.hostname
-    serverPort: ['string', true, '8082'],
+    serverProtocol: ['string', true, window.location.protocol + '//'],
+    serverIP: ['string', true, window.location.hostname],
+    serverPort: ['string', true, window.location.port],
     apiEndPoint: ['string', true, '/userstatus']
   },
   derived: {

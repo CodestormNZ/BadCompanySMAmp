@@ -51,7 +51,19 @@ div.player
             span /100
           div.stat-bar.bar-bg()
             div.stat-bar.bar-drink(data-hook="drink-bar")
-    
+
+    div.div-inline
+      div()
+        span.stat-exp.pad-left-10() Lvl: 
+          span(data-hook="level") 
+          |  &#40;+
+          span.level-progress(data-hook="progress")
+          | &#37;&#41;
+        span.level-progress.pad-left-10() XP:
+          span(data-hook="expprogress")
+      div.stat-bar.bar-bg.bg-280()
+        div.stat-bar.bar-exp(data-hook="exp-progress-bar")
+
     div
       span.position()
         a.hoverlink(data-hook="copypos" title="click to copy to clipboard") &#64;
@@ -62,26 +74,13 @@ div.player
         span() &#0176;
         span(style="color:#428bca;") &#32;&#32;&#8737;&#32;
         span(data-hook="viewangle")
-      span.coretemp
+      span.coretemp.pad-left-5
         span(style="color:#428bca;") t&#32;
         span(data-hook="coretemp")
         span() &#8457;
-      span.life-symbol(data-hook="isalive")
+      span.life-symbol.pad-left-5(data-hook="isalive")
       span.life-span.pad-left-5()
-        span(data-hook="current")
-        span() /
-        span(data-hook="longest")
-    div.div-inline
-      div()
-        span.stat-exp.pad-left-10() Lvl: 
-          span(data-hook="level") 
-          |  &#40;+
-          span.level-progress(data-hook="progress")
-          | &#37;&#41;
-        span.level-progress.pad-left-10() XP:
-          span(data-hook="expprogress")
-      div.stat-bar.bar-bg.bg-240()
-        div.stat-bar.bar-exp(data-hook="exp-progress-bar")
+        span(data-hook="life-time")
 
     div
       span.pad-left-5() Crft: 

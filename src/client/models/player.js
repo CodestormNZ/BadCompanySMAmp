@@ -41,6 +41,13 @@ module.exports = AmpersandModel.extend({
         return 80;
       }
     },
+    //todo: d:h:m:s format
+    LifeTime: {
+      deps: ['CurrentLife', 'LongestLife'],
+      fn: function () {
+        return Math.round(this.CurrentLife * 60, 0) + 's/' + Math.round(this.LongestLife * 60, 0) + 's';
+      }
+    },
     HealthBar: {
       deps: ['Health', 'Wellness'],
       fn: function () {
@@ -68,12 +75,12 @@ module.exports = AmpersandModel.extend({
     ExpProgressBar: {
       deps: ['ExpToNextLevel', 'ExpForNextLevel'],
       fn: function () {
-        return `width:${(this.ExpForNextLevel - this.ExpToNextLevel) / this.ExpForNextLevel * this.StatBarWidth * 3}px`;
+        return `width:${(this.ExpForNextLevel - this.ExpToNextLevel) / this.ExpForNextLevel * this.StatBarWidth * 3.5}px`;
       }
     },
     SpeedPercent: {
       deps: ['SpeedModifier'],
-      fn: function() {
+      fn: function () {
         return this.SpeedModifier * 100 + '%';
       }
     },

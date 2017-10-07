@@ -70,8 +70,7 @@ module.exports = View.extend({
     'model.Deaths': '[data-hook~=deaths]',
     'model.DistanceWalked': '[data-hook~=walked]',
     'model.ItemsCrafted': '[data-hook~=crafted]',
-    'model.CurrentLife': '[data-hook~=current]',
-    'model.LongestLife': '[data-hook~=longest]',
+    'model.LifeTime': '[data-hook~=life-time]',
 
     'model.ExpProgressForLevel': '[data-hook~=expprogress]',
     'model.ExpProgress': '[data-hook~=exp-progress]',
