@@ -1,7 +1,10 @@
 section.page
-  h2 Players All
+  h2 All Players
 
-  table
+  .buttons.btn-group
+    button.btn.btn-default(data-hook="fetch") Refresh 
+
+  table.table.table-striped.table-hover
     thead
       tr
         th
@@ -9,15 +12,9 @@ section.page
         th
           span() SteamId
         th
-          span() EntityId
+          span() Status
         th
-          span() IsOnline
+          span.text-right() Last Online
         th
-          span() LastOnline
-        th
-          span() LastWrite
+          span.text-right() Last Write
     tbody(data-hook="pdf-list")
-
-  .buttons.btn-group
-    button.btn.btn-default(data-hook="reset") .reset() 
-    button.btn.btn-default(data-hook="fetch") .fetch() 

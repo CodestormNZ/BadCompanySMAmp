@@ -2,7 +2,7 @@ body
   nav.navbar.navbar-default
     div.container-fluid
       div.navbar-header
-        a.navbar-brand(href='/static/BCM.html') Bad Company SM UI
+        a.navbar-brand(href='/static/BCM.html') Bad Company
         span.pull-right(data-hook="game-time")
       ul.nav.navbar-nav
         li
@@ -13,8 +13,9 @@ body
           a(href="/static/BCM.html/console") Console
         li
           a(href="/static/BCM.html/login") Login
-  .container
-    main(data-hook="page-container")
+  .container-fluid
+    main(data-hook="page-container")    
+    div(class="clearfix")    
     footer.footer-main
       nav.nav-footer.cf
         div

@@ -8,7 +8,8 @@ module.exports = Collection.extend({
     return (collection.get('EntityId'));
   },
   url: function () {
-    const mode = 'all';
+    const mode = 'online';
+    //const mode = 'all';
 
     if (window.app.me.adminName != null && window.app.me.adminName !== '') {
       return '/api/executeconsolecommand?raw=true' + `&adminuser=${window.app.me.adminName}` + `&admintoken=${window.app.me.adminToken}` +

@@ -26,6 +26,7 @@ module.exports = PageView.extend({
     if (window.app.me.hasLogin || (window.app.me.adminName != null && window.app.me.adminName !== '')) {
       this.collection.fetch({ success: this.successCallBack, error: this.errorCallBack });
     } else {
+
       //todo: notify of no login
     }
     return false;

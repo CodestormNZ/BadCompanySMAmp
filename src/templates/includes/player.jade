@@ -37,31 +37,32 @@ div.player
 
       div.div-inline
         div.div-inline
-          div()
+          div.font-08em()
             span.stat-food.pad-left-10() F:
             span(data-hook="food")
             span /100
-          div.stat-bar.bar-bg()
+          div.stat-bar.bar-bg.bg-60()
             div.stat-bar.bar-food(data-hook="food-bar")
 
         div.div-inline
-          div()
+          div.font-08em()
             span.stat-drink.pad-left-10() D:
             span(data-hook="drink")
             span /100
-          div.stat-bar.bar-bg()
+          div.stat-bar.bar-bg.bg-60()
             div.stat-bar.bar-drink(data-hook="drink-bar")
 
     div.div-inline
       div()
         span.stat-exp.pad-left-10() Lvl: 
           span(data-hook="level") 
-          |  &#40;+
-          span.level-progress(data-hook="progress")
-          | &#37;&#41;
+          span.level-progress
+            |  &#40;+
+            span(data-hook="progress")
+            | &#37;&#41;
         span.level-progress.pad-left-10() XP:
           span(data-hook="expprogress")
-      div.stat-bar.bar-bg.bg-280()
+      div.stat-bar.bar-bg.bg-320()
         div.stat-bar.bar-exp(data-hook="exp-progress-bar")
 
     div
@@ -78,34 +79,36 @@ div.player
         span(style="color:#428bca;") t&#32;
         span(data-hook="coretemp")
         span() &#8457;
+    div
       span.life-symbol.pad-left-5(data-hook="isalive")
       span.life-span.pad-left-5()
         span(data-hook="life-time")
-
-    div
-      span.pad-left-5() Crft: 
-        span(data-hook="crafted")
-      span.pad-left-5() Wlk: 
-        span(data-hook="walked")
-      span.pad-left-5() Spd: 
-        span(data-hook="speed")
-      span.pad-left-5() PlayTime: 
+      span.font-08em
+        span.pad-left-5(style="color:#428bca;") Play: 
         span(data-hook="playtime")
-    div
-      span.pad-left-5() GS: 
-        span(data-hook="gamestage")
-      span.pad-left-5() Sc: 
-        span(data-hook="score")
-      span.pad-left-5() PK: 
-        span(data-hook="pkill")
-      span.pad-left-5() ZK: 
-        span(data-hook="zkill")
-      span.pad-left-5() Dth: 
-        span(data-hook="deaths")
-    div
-      span.pad-left-5() Ip: 
-        span(data-hook="ip")
-      span.pad-left-5() Sess: 
+        span.pad-left-5(style="color:#428bca;") Sess: 
         span(data-hook="session")
-      span.pad-left-5() Png: 
-        span(data-hook="ping")
+
+    div.font-08em
+      span(style="color:#428bca;") GS: 
+      span(data-hook="gamestage")
+      span.pad-left-5(style="color:#428bca;") Score: 
+      span(data-hook="score")
+      span.pad-left-5(style="color:#428bca;") PK: 
+      span(data-hook="pkill")
+      span.pad-left-5(style="color:#428bca;") ZK: 
+      span(data-hook="zkill")
+      span.pad-left-5(style="color:#428bca;") Dth: 
+      span(data-hook="deaths")
+    div.font-08em
+      span(style="color:#428bca;") Craft: 
+      span(data-hook="crafted")
+      span.pad-left-5(style="color:#428bca;") Dist: 
+      span(data-hook="walked")
+      span.pad-left-5(style="color:#428bca;") Speed: 
+      span(data-hook="speed")
+    div.font-08em
+      span(style="color:#428bca;") Ip: 
+      a.hoverlink(data-hook="ip" title="click to copy to clipboard")
+      span.pad-left-5(style="color:#428bca;") Ping: 
+      span(data-hook="ping")

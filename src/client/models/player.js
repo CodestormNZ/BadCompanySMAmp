@@ -41,41 +41,58 @@ module.exports = AmpersandModel.extend({
         return 80;
       }
     },
-    //todo: d:h:m:s format
+    WalkedMeters: {
+      deps: ['DistanceWalked'],
+      fn: function () {
+        return Math.floor(this.DistanceWalked) + 'm';
+      }
+    },
+    PlayTimeSpan: {
+      deps: ['TotalPlayTime'],
+      fn: function () {
+        return this.timespanFormat(this.TotalPlayTime);
+      }
+    },
+    SessTimeSpan: {
+      deps: ['SessionPlayTime'],
+      fn: function () {
+        return this.timespanFormat(this.SessionPlayTime);
+      }
+    },
     LifeTime: {
       deps: ['CurrentLife', 'LongestLife'],
       fn: function () {
-        return Math.round(this.CurrentLife * 60, 0) + 's/' + Math.round(this.LongestLife * 60, 0) + 's';
+        return this.timespanFormat(this.CurrentLife) + '/' + this.timespanFormat(this.LongestLife);
       }
     },
     HealthBar: {
       deps: ['Health', 'Wellness'],
       fn: function () {
-        return `width:${this.Health / this.Wellness * this.StatBarWidth}px`;
+        return `width:${this.Health / this.Wellness * 90}px`;
       }
     },
     StaminaBar: {
       deps: ['Stamina', 'Wellness'],
       fn: function () {
-        return `width:${this.Stamina / this.Wellness * this.StatBarWidth}px`;
+        return `width:${this.Stamina / this.Wellness * 90}px`;
       }
     },
     FoodBar: {
       deps: ['Food'],
       fn: function () {
-        return `width:${this.Food / 100 * this.StatBarWidth}px`;
+        return `width:${this.Food / 100 * 60}px`;
       }
     },
     DrinkBar: {
       deps: ['Drink'],
       fn: function () {
-        return `width:${this.Drink / 100 * this.StatBarWidth}px`;
+        return `width:${this.Drink / 100 * 60}px`;
       }
     },
     ExpProgressBar: {
       deps: ['ExpToNextLevel', 'ExpForNextLevel'],
       fn: function () {
-        return `width:${(this.ExpForNextLevel - this.ExpToNextLevel) / this.ExpForNextLevel * this.StatBarWidth * 3.5}px`;
+        return `width:${(this.ExpForNextLevel - this.ExpToNextLevel) / this.ExpForNextLevel * 335}px`;
       }
     },
     SpeedPercent: {
@@ -111,9 +128,9 @@ module.exports = AmpersandModel.extend({
     RotationAngle: {
       deps: ['Rotation'],
       fn: function () {
-        var rot = this.Rotation.split(' ');
+        const rot = this.Rotation.split(' ');
         if (rot.length === 3) {
-          var r = (+rot[1] % 360);
+          const r = (+rot[1] % 360);
           return r < 0 ? 360 + r : r;
         } else {
           return '';
@@ -123,40 +140,27 @@ module.exports = AmpersandModel.extend({
     ViewAngle: {
       deps: ['Rotation'],
       fn: function () {
-        var rot = this.Rotation.split(' ');
+        const rot = this.Rotation.split(' ');
         if (rot.length === 3) {
           return rot[0];
         } else {
           return '';
         }
       }
-    },
-    //LastOnlineLocal: {
-    //  deps: ['LastOnline'],
-    //  fn: function () {
-    //    var d = this.LastOnline;
-    //    if (d != null) {
-    //      return d.getFullYear() +
-    //        "-" +
-    //        (d.getMonth() + 1) +
-    //        "-" +
-    //        d.getDate() +
-    //        " " +
-    //        d.getHours() +
-    //        ":" +
-    //        d.getMinutes() +
-    //        ":" +
-    //        d.getSeconds();
-    //    } else {
-    //      return null;
-    //    }
-    //  }
-    //},
-    //viewUrl: {
-    //  deps: ['SteamId'],
-    //  fn: function () {
-    //    return '/player/' + this.SteamId;
-    //  }
-    //}
+    }
+  },
+  timespanFormat: function (timespan) {
+    const totalSeconds = Math.round(timespan * 60, 0);
+    const d = Math.floor(totalSeconds / (60 * 60 * 24));
+    const h = Math.floor(totalSeconds / (60 * 60)) % 24;
+    const m = Math.floor(totalSeconds / 60) % 60;
+    const s = totalSeconds % 60;
+
+    return (
+      (d > 0 ? d + 'd ' : '') +
+      (h > 0 ? h + 'h ' : '') +
+      (m > 0 ? m + 'm ' : '') +
+      s + 's'
+    );
   }
 });

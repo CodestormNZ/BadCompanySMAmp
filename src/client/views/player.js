@@ -9,6 +9,7 @@ module.exports = View.extend({
   events: {
     'click [data-hook~=copypos]': 'clipboardPosition',
     'click [data-hook~=steamid]': 'clipboardSteamId',
+    'click [data-hook~=ip]': 'clipboardIp',
     'click [data-hook~=entityid]': 'clipboardEntityId'
   },
   bindings: {
@@ -17,9 +18,9 @@ module.exports = View.extend({
     'model.EntityId': '[data-hook~=entityid]',
     'model.IP': '[data-hook~=ip]',
     'model.Ping': '[data-hook~=ping]',
-    'model.SessionPlayTime': '[data-hook~=session]',
-    'model.TotalPlayTime': '[data-hook~=playtime]',
-//    'model.LastOnlineLocal': '[data-hook~=online]',
+    'model.SessTimeSpan': '[data-hook~=session]',
+    'model.PlayTimeSpan': '[data-hook~=playtime]',
+    //    'model.LastOnlineLocal': '[data-hook~=online]',
     'model.Health': '[data-hook~=health]',
     'model.HealthBar': {
       type: 'attribute',
@@ -68,7 +69,7 @@ module.exports = View.extend({
     'model.KilledPlayers': '[data-hook~=pkill]',
     'model.KilledZombies': '[data-hook~=zkill]',
     'model.Deaths': '[data-hook~=deaths]',
-    'model.DistanceWalked': '[data-hook~=walked]',
+    'model.WalkedMeters': '[data-hook~=walked]',
     'model.ItemsCrafted': '[data-hook~=crafted]',
     'model.LifeTime': '[data-hook~=life-time]',
 
@@ -102,6 +103,14 @@ module.exports = View.extend({
     const $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(this.queryByHook('entityid')).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+    return false;
+  },
+  clipboardIp: function () {
+    const $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(this.queryByHook('ip')).text()).select();
     document.execCommand("copy");
     $temp.remove();
     return false;
