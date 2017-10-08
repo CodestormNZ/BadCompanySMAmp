@@ -92,7 +92,7 @@ module.exports = AmpersandModel.extend({
     ExpProgressBar: {
       deps: ['ExpToNextLevel', 'ExpForNextLevel'],
       fn: function () {
-        return 'width:' + ((this.ExpForNextLevel - this.ExpToNextLevel) / this.ExpForNextLevel * 335) + 'px';
+        return 'width:' + ((this.ExpForNextLevel - this.ExpToNextLevel) / this.ExpForNextLevel * 320) + 'px';
       }
     },
     SpeedPercent: {
