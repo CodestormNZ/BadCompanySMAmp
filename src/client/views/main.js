@@ -74,7 +74,7 @@ module.exports = View.extend({
     // and dealing with browser quirks to determine if this
     // event was from clicking an internal link. That we should
     // treat like local navigation.
-    var localPath = localLinks.pathname(e);
+    const localPath = localLinks.pathname(e);
 
     if (localPath) {
       e.preventDefault();
@@ -83,10 +83,10 @@ module.exports = View.extend({
   },
 
   updateActiveNav: function () {
-    var path = window.location.pathname.slice(1);
+    var path = window.location.search.slice(1);
 
     this.queryAll('.nav a[href]').forEach(function (aTag) {
-      var aPath = aTag.pathname.slice(1);
+      const aPath = aTag.search.slice(1);
 
       if ((!aPath && !path) || (aPath && path.indexOf(aPath) === 0)) {
         dom.addClass(aTag.parentNode, 'active');

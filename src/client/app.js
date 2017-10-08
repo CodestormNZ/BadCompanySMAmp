@@ -22,11 +22,11 @@ app.extend({
     });
 
     this.router.history.start({ pushState: true });
-
     this.me.on('change', this.me.debouncedWriteToCache);
   },
   navigate: function (page) {
-    const url = (page.charAt(0) === '/') ? page.slice(1) : page;
+    const url = (page.charAt(0) === '?') ? page.slice(1) : page;
+
     this.router.history.navigate(url, {
       trigger: true
     });

@@ -10,12 +10,12 @@ var PlayerShowPage = require('./pages/player-show');
 
 module.exports = Router.extend({
   routes: {
-    'static/BCM.html': 'home',
-    'static/BCM.html/online': 'playersOnline',
-    'static/BCM.html/players': 'playersAll',
-    'static/BCM.html/player/:id': 'playerView',
-    'static/BCM.html/console': 'console',
-    'static/BCM.html/login': 'login',
+    'static/BCM.html?home': 'home',
+    'static/BCM.html?online': 'playersOnline',
+    'static/BCM.html?players': 'playersAll',
+    'static/BCM.html?player/:id': 'playerView',
+    'static/BCM.html?console': 'console',
+    'static/BCM.html?login': 'login',
     'static/BCM.html(*path)': 'catchAll'
   },
 
@@ -55,6 +55,6 @@ module.exports = Router.extend({
   },
 
   catchAll: function () {
-    this.redirectTo('static/BCM.html/');
+    this.redirectTo('static/BCM.html?home');
   }
 });

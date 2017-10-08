@@ -18,7 +18,7 @@
 
     // body.jade compiled template
     templatizer["body"] = function tmpl_body() {
-        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/static/BCM.html" class="navbar-brand">Bad Company</a><span data-hook="game-time" class="pull-right"></span></div><ul class="nav navbar-nav"><li><a href="/static/BCM.html/online">Online</a></li><li><a href="/static/BCM.html/players">All Players</a></li><li><a href="/static/BCM.html/console">Console</a></li><li><a href="/static/BCM.html/login">Login</a></li></ul></div></nav><div class="container-fluid"><main data-hook="page-container">   </main><div class="clearfix">   </div><footer class="footer-main"><nav class="nav-footer cf"><div><a href="https://github.com/7days2mod/" target="_blank" class="nav-item external">7Days2Mod Home</a></div><div><a href="https://github.com/7days2mod/BadCompanySM" target="_blank" class="nav-item external">Bad Company SM</a></div><div><a href="https://7daystodie.com/forums/forum.php" target="_blank" class="nav-item external">Forums</a></div></nav></footer></div></body>';
+        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/static/BCM.html?home" class="navbar-brand">Bad Company</a><span data-hook="game-time" class="pull-right"></span></div><ul class="nav navbar-nav"><li><a href="/static/BCM.html?online">Online</a></li><li><a href="/static/BCM.html?players">All Players</a></li><li><a href="/static/BCM.html?console">Console</a></li><li><a href="/static/BCM.html?login">Login</a></li></ul></div></nav><div class="container-fluid"><main data-hook="page-container">   </main><div class="clearfix">   </div><footer class="footer-main"><nav class="nav-footer cf"><div><a href="https://github.com/7days2mod/" target="_blank" class="nav-item external">7Days2Mod Home</a></div><div><a href="https://github.com/7days2mod/BadCompanySM" target="_blank" class="nav-item external">Bad Company SM</a></div><div><a href="https://7daystodie.com/forums/forum.php" target="_blank" class="nav-item external">Forums</a></div></nav></footer></div></body>';
     };
 
     // head.jade compiled template
@@ -48,7 +48,7 @@
 
     // pages\home.jade compiled template
     templatizer["pages"]["home"] = function tmpl_pages_home() {
-        return '<section class="page home"><h2>Bad Company SM Web UI</h2></section>';
+        return '<section class="page home"><h2>Bad Company Server Manager</h2></section>';
     };
 
     // pages\login.jade compiled template
