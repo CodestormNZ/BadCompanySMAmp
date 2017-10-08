@@ -18,7 +18,7 @@ module.exports = AmpersandModel.extend({
 
     serverProtocol: ['string', true, window.location.protocol + '//'],
     serverIP: ['string', true, window.location.hostname],
-    serverPort: ['string', true, window.location.port],
+    serverPort: ['string', true, window.location.port]
   },
   derived: {
     GameTime: {
@@ -55,7 +55,7 @@ module.exports = AmpersandModel.extend({
   fetchData: function () {
     var url = this.baseUrl + '/api/executeconsolecommand?raw=true&command=bc-time';
     if (window.app.me != null && window.app.me.adminName != null && window.app.me.adminName !== '') {
-      url += `&adminuser=${window.app.me.adminName}&admintoken=${window.app.me.adminToken}`;
+      url += '&adminuser=' + window.app.me.adminName + '&admintoken=' + window.app.me.adminToken;
     } else if (window.app.me == null || !window.app.me.hasLogin) {
       return;
     }
@@ -64,12 +64,12 @@ module.exports = AmpersandModel.extend({
       body: '',
       uri: url,
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       }
     }, function (err, resp, body) {
       if (resp.statusCode) {
         try {
-          const _time = JSON.parse(body);
+          var _time = JSON.parse(body);
           //{"Time":{"D":1,"H":10,"M":26},"Ticks":533150.5,"Fps":19.96,"Clients":0,"Entities":0}
           window.app.gametime.D = _time.Time.D;
           window.app.gametime.H = _time.Time.H;
@@ -83,7 +83,7 @@ module.exports = AmpersandModel.extend({
         }
       } else {
         //todo: display error
-        console.log("error", resp.error);
+        console.log('error', resp.error);
       }
     });
   }

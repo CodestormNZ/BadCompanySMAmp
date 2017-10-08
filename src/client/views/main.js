@@ -33,9 +33,9 @@ module.exports = View.extend({
 
     // init and configure our page switcher
     this.pageSwitcher = new ViewSwitcher(this.queryByHook('page-container'), {
-      show: function (newView, oldView) {
+      show: function (newView) {
         // it's inserted and rendered for me
-        document.title = `BCM Web UI - ${_.result(newView, 'pageTitle')}`;
+        document.title = 'BCM Web UI - ' + _.result(newView, 'pageTitle');
         document.scrollTop = 0;
 
         // add a class specifying it's active
@@ -44,7 +44,7 @@ module.exports = View.extend({
         // store an additional reference, just because
         app.currentPage = newView;
       },
-      hide: function(oldView) {
+      hide: function (oldView) {
         if (oldView != null && oldView.isPolling != null) {
           oldView.isPolling = false;
         }
@@ -74,7 +74,7 @@ module.exports = View.extend({
     // and dealing with browser quirks to determine if this
     // event was from clicking an internal link. That we should
     // treat like local navigation.
-    const localPath = localLinks.pathname(e);
+    var localPath = localLinks.pathname(e);
 
     if (localPath) {
       e.preventDefault();
@@ -86,7 +86,7 @@ module.exports = View.extend({
     var path = window.location.search.slice(1);
 
     this.queryAll('.nav a[href]').forEach(function (aTag) {
-      const aPath = aTag.search.slice(1);
+      var aPath = aTag.search.slice(1);
 
       if ((!aPath && !path) || (aPath && path.indexOf(aPath) === 0)) {
         dom.addClass(aTag.parentNode, 'active');

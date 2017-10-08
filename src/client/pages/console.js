@@ -1,4 +1,4 @@
-var app = require('ampersand-app');
+//var app = require('ampersand-app');
 var PageView = require('./base');
 var templates = require('../templates');
 var ConsoleForm = require('../forms/console');
@@ -9,7 +9,7 @@ var xhr = require("xhr");
 module.exports = PageView.extend({
   pageTitle: 'console',
   template: templates.pages.console,
-  initialize: function (spec) {
+  initialize: function () {
     var self = this;
     self.model = new ConsoleModel();
   },

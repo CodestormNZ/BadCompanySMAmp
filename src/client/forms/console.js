@@ -14,8 +14,7 @@ module.exports = FormView.extend({
         value: this.model && this.model.command,
         placeholder: '',
         parent: this
-      }),
-
+      })
     ];
   }
 });

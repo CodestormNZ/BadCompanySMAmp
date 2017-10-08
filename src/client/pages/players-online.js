@@ -26,8 +26,8 @@ module.exports = PageView.extend({
     if (window.app.me.hasLogin || (window.app.me.adminName != null && window.app.me.adminName !== '')) {
       this.collection.fetch({ success: this.successCallBack, error: this.errorCallBack });
     } else {
-
       //todo: notify of no login
+      window.app.me.hasLogin = window.app.me.hasLogin;
     }
     return false;
   },
@@ -45,11 +45,11 @@ module.exports = PageView.extend({
       }
     }, window.app.players.baseDelay * window.app.players.cooldown);
   },
-  successCallBack: function (model, response, options) {
+  successCallBack: function (model) {
     //todo: notify of update
     model.cooldown = 1;
   },
-  errorCallBack: function (model, response, options) {
+  errorCallBack: function (model) {
     //todo: notify of error
     if (this.app.players) {
       this.app.players.reset();

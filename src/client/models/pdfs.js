@@ -9,7 +9,7 @@ module.exports = Collection.extend({
   },
   url: function () {
     if (window.app.me.adminName !== '') {
-      return `/api/executeconsolecommand?raw=true&adminuser=${window.app.me.adminName}&admintoken=${window.app.me.adminToken}&command=bc-pdf`;
+      return '/api/executeconsolecommand?raw=true&adminuser=' + window.app.me.adminName + '&admintoken=' + window.app.me.adminToken + '&command=bc-pdf';
     } else {
       //todo: steam login check
       return '/api/executeconsolecommand?raw=true&command=bc-pdf';

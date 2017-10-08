@@ -19,7 +19,7 @@ module.exports = AmpersandModel.extend({
     LastOnlineLocal: {
       deps: ['LastOnline'],
       fn: function () {
-        const d = this.LastOnline;
+        var d = this.LastOnline;
         if (d != null) {
           return this.parseDate(d);
         } else {
@@ -30,7 +30,7 @@ module.exports = AmpersandModel.extend({
     LastWriteLocal: {
       deps: ['LastWrite'],
       fn: function () {
-        const d = this.LastWrite;
+        var d = this.LastWrite;
         if (d != null) {
           return this.parseDate(d);
         } else {
@@ -41,7 +41,7 @@ module.exports = AmpersandModel.extend({
     viewUrl: {
       deps: ['SteamId'],
       fn: function () {
-        return `/player/${this.SteamId}`;
+        return '/player/' + this.SteamId;
       }
     }
   },
@@ -91,8 +91,8 @@ module.exports = AmpersandModel.extend({
     }
   },
   lpad: function (t, c, l) {
-    while (`${t}`.length < l) {
-      t = `${c}${t}`;
+    while (('' + t).length < l) {
+      t = '' + c + t;
     }
 
     return t;

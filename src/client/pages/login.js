@@ -6,8 +6,8 @@ var LoginForm = require('../forms/login');
 module.exports = PageView.extend({
   pageTitle: 'login',
   template: templates.pages.login,
-  initialize: function (spec) {
-    const self = this;
+  initialize: function () {
+    var self = this;
     self.model = window.app.me;
   },
   bindings: {

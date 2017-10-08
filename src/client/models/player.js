@@ -68,31 +68,31 @@ module.exports = AmpersandModel.extend({
     HealthBar: {
       deps: ['Health', 'Wellness'],
       fn: function () {
-        return `width:${this.Health / this.Wellness * 90}px`;
+        return 'width:' + (this.Health / this.Wellness * 90) + 'px';
       }
     },
     StaminaBar: {
       deps: ['Stamina', 'Wellness'],
       fn: function () {
-        return `width:${this.Stamina / this.Wellness * 90}px`;
+        return 'width:' + (this.Stamina / this.Wellness * 90) + 'px';
       }
     },
     FoodBar: {
       deps: ['Food'],
       fn: function () {
-        return `width:${this.Food / 100 * 60}px`;
+        return 'width:' + (this.Food / 100 * 60) + 'px';
       }
     },
     DrinkBar: {
       deps: ['Drink'],
       fn: function () {
-        return `width:${this.Drink / 100 * 60}px`;
+        return 'width:' + (this.Drink / 100 * 60) + 'px';
       }
     },
     ExpProgressBar: {
       deps: ['ExpToNextLevel', 'ExpForNextLevel'],
       fn: function () {
-        return `width:${(this.ExpForNextLevel - this.ExpToNextLevel) / this.ExpForNextLevel * 335}px`;
+        return 'width:' + ((this.ExpForNextLevel - this.ExpToNextLevel) / this.ExpForNextLevel * 335) + 'px';
       }
     },
     SpeedPercent: {
@@ -104,19 +104,19 @@ module.exports = AmpersandModel.extend({
     IsAlive: {
       deps: ['IsDead'],
       fn: function () {
-        return this.IsDead ? "\u2620" : "\u2625";
+        return this.IsDead ? '\u2620' : '\u2625';
       }
     },
     IsAliveColor: {
       deps: ['IsDead'],
       fn: function () {
-        return this.IsDead ? "color:rgb(255,0,0);" : "color:rgb(0,255,0);";
+        return this.IsDead ? 'color:rgb(255,0,0);' : 'color:rgb(0,255,0);';
       }
     },
     IsAliveTitle: {
       deps: ['IsDead'],
       fn: function () {
-        return this.IsDead ? "Dead" : "Alive";
+        return this.IsDead ? 'Dead' : 'Alive';
       }
     },
     ExpProgressForLevel: {
@@ -128,9 +128,9 @@ module.exports = AmpersandModel.extend({
     RotationAngle: {
       deps: ['Rotation'],
       fn: function () {
-        const rot = this.Rotation.split(' ');
+        var rot = this.Rotation.split(' ');
         if (rot.length === 3) {
-          const r = (+rot[1] % 360);
+          var r = (+rot[1] % 360);
           return r < 0 ? 360 + r : r;
         } else {
           return '';
@@ -140,7 +140,7 @@ module.exports = AmpersandModel.extend({
     ViewAngle: {
       deps: ['Rotation'],
       fn: function () {
-        const rot = this.Rotation.split(' ');
+        var rot = this.Rotation.split(' ');
         if (rot.length === 3) {
           return rot[0];
         } else {
@@ -150,11 +150,11 @@ module.exports = AmpersandModel.extend({
     }
   },
   timespanFormat: function (timespan) {
-    const totalSeconds = Math.round(timespan * 60, 0);
-    const d = Math.floor(totalSeconds / (60 * 60 * 24));
-    const h = Math.floor(totalSeconds / (60 * 60)) % 24;
-    const m = Math.floor(totalSeconds / 60) % 60;
-    const s = totalSeconds % 60;
+    var totalSeconds = Math.round(timespan * 60, 0);
+    var d = Math.floor(totalSeconds / (60 * 60 * 24));
+    var h = Math.floor(totalSeconds / (60 * 60)) % 24;
+    var m = Math.floor(totalSeconds / 60) % 60;
+    var s = totalSeconds % 60;
 
     return (
       (d > 0 ? d + 'd ' : '') +

@@ -31,9 +31,9 @@ module.exports = AmpersandModel.extend({
       deps: ['adminUser', 'hasLogin', 'steamId'],
       fn: function () {
         if (this.hasLogin) {
-          return `SteamId: ${this.steamId}`;
+          return 'SteamId: ' + this.steamId;
         } else if (this.adminName !== '') {
-          return `AdminName: ${this.adminName}`;
+          return 'AdminName: ' + this.adminName;
         }
         return '';
       }
@@ -67,13 +67,13 @@ module.exports = AmpersandModel.extend({
     this.pollForData();
   },
   writeToCache() {
-    const data = JSON.stringify(this);
+    var data = JSON.stringify(this);
     localStorage.setItem('me', data);
   },
   load() {
-    const data = localStorage.getItem('me');
+    var data = localStorage.getItem('me');
     if (data) {
-      const loaded = JSON.parse(data);
+      var loaded = JSON.parse(data);
       this.set(loaded);
     }
 
@@ -89,7 +89,7 @@ module.exports = AmpersandModel.extend({
     }, _self.pollrate);
   },
   fetchData: function () {
-    const _self = this;
+    var _self = this;
     xhr({
       body: '',
       uri: _self.urlEndPoint,
@@ -99,7 +99,7 @@ module.exports = AmpersandModel.extend({
     }, function (err, resp, body) {
       if (resp.statusCode) {
         try {
-          const _usr = JSON.parse(body);
+          var _usr = JSON.parse(body);
           window.app.me.steamId = _usr.username;
           window.app.me.hasLogin = _usr.loggedin;
           window.app.me.permissions = _usr.permissions;

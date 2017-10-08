@@ -20,6 +20,7 @@ internals.clientConfig = JSON.stringify(config.client);
 server.ext('onPreResponse', function (request, reply) {
   if (!request.state.config) {
     var response = request.response;
+
     return reply(response.state('config', encodeURIComponent(internals.clientConfig)));
   }
 

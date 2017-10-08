@@ -2,7 +2,6 @@
 var app = require('ampersand-app');
 var PageView = require('./base');
 var templates = require('../templates');
-var PlayerForm = require('../forms/player');
 
 
 module.exports = PageView.extend({
