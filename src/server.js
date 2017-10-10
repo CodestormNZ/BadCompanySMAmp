@@ -6,7 +6,6 @@ var staticRoutes = require('./staticRoutes');
 var internals = {};
 var server = new Hapi.Server();
 
-
 server.connection({ host: config.http.listen, port: config.http.port });
 internals.configStateConfig = { encoding: 'none', ttl: 1000 * 60 * 15, isSecure: config.isSecure };
 server.state('config', internals.configStateConfig);
@@ -24,7 +23,7 @@ server.register([{ register: MoonBootsHapi.register, options: moonbootsConfig },
     if (err) throw err;
     server.start(function (err) {
       if (err) throw err;
-      console.log('Bad Company SM Web UI is running at: http://' + config.http.listen + ':' + config.http.port);
+      console.log('BCM is running at: http://' + config.http.listen + ':' + config.http.port);
     });
   }
 );

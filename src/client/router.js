@@ -6,6 +6,7 @@ var Login = require('./pages/login');
 var PlayersOnline = require('./pages/players-online');
 var PlayersAll = require('./pages/players-all');
 var PlayerShowPage = require('./pages/player-show');
+
 module.exports = Router.extend({
   routes: {
     'static/BCM.html?home': 'home',

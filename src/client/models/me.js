@@ -55,18 +55,18 @@ module.exports = AmpersandModel.extend({
       }
     }
   },
-  initialize() {
+  initialize: function () {
     this.debouncedWriteToCache = _.debounce(this.writeToCache, 250);
     this.pollrate = 5000;
     this.isPolling = true;
     this.fetchData();
     this.pollForData();
   },
-  writeToCache() {
+  writeToCache: function () {
     var data = JSON.stringify(this);
     localStorage.setItem('me', data);
   },
-  load() {
+  load: function () {
     var data = localStorage.getItem('me');
     if (data) {
       var loaded = JSON.parse(data);

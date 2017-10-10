@@ -5,7 +5,7 @@ module.exports = Collection.extend({
   model: Player,
   comparator: function(collection) { return (collection.get('EntityId')); },
   url: function() {
-    var mode = 'online';
+    var mode = 'all';
     if (window.app.me.adminName != null && window.app.me.adminName !== '') {
       return '/api/executeconsolecommand?raw=true' +
         '&adminuser=' +
