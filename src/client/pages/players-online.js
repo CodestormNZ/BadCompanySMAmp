@@ -2,16 +2,11 @@ var PageView = require('./base');
 var templates = require('../templates');
 var PlayerView = require('../views/player');
 
-
 module.exports = PageView.extend({
   pageTitle: 'Players Online',
   template: templates.pages.playersOnline,
-  props: {
-    isPolling: 'boolean',
-    cooldown: 'number',
-    baseDelay: 'number'
-  },
-  render: function () {
+  props: { isPolling: 'boolean', cooldown: 'number', baseDelay: 'number' },
+  render: function() {
     this.renderWithTemplate();
     this.renderCollection(this.collection, PlayerView, this.queryByHook('player-list'));
     if (!this.collection.length) {
@@ -22,35 +17,30 @@ module.exports = PageView.extend({
     this.isPolling = true;
     this.pollForData();
   },
-  fetchCollection: function () {
+  fetchCollection: function() {
     if (window.app.me.hasLogin || (window.app.me.adminName != null && window.app.me.adminName !== '')) {
       this.collection.fetch({ success: this.successCallBack, error: this.errorCallBack });
     } else {
-      //todo: notify of no login
       window.app.me.hasLogin = window.app.me.hasLogin;
     }
     return false;
   },
-  sortCollection: function () {
+  sortCollection: function() {
     this.collection.sort();
     return false;
   },
-  pollForData: function () {
+  pollForData: function() {
     var _self = this;
-
-    setTimeout(function () {
-      if (_self.isPolling) {
-        _self.fetchCollection();
-        _self.pollForData();
-      }
-    }, window.app.players.baseDelay * window.app.players.cooldown);
+    setTimeout(function() {
+        if (_self.isPolling) {
+          _self.fetchCollection();
+          _self.pollForData();
+        }
+      },
+      window.app.players.baseDelay * window.app.players.cooldown);
   },
-  successCallBack: function (model) {
-    //todo: notify of update
-    model.cooldown = 1;
-  },
-  errorCallBack: function (model) {
-    //todo: notify of error
+  successCallBack: function(model) { model.cooldown = 1; },
+  errorCallBack: function(model) {
     if (this.app.players) {
       this.app.players.reset();
     }

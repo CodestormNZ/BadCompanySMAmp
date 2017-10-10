@@ -1,7 +1,5 @@
 var AmpersandModel = require('ampersand-model');
-var xhr = require("xhr");
-//var _ = require('lodash');
-
+var xhr = require('xhr');
 
 module.exports = AmpersandModel.extend({
   props: {
@@ -12,10 +10,8 @@ module.exports = AmpersandModel.extend({
     Fps: 'number',
     Clients: 'number',
     Entities: 'number',
-
     pollrate: ['number'],
     isPolling: ['boolean'],
-
     serverProtocol: ['string', true, window.location.protocol + '//'],
     serverIP: ['string', true, window.location.hostname],
     serverPort: ['string', true, window.location.port]
@@ -23,15 +19,11 @@ module.exports = AmpersandModel.extend({
   derived: {
     GameTime: {
       deps: ['D', 'H', 'M'],
-      fn: function () {
-        return this.D + ' ' + this.H + ' ' + this.M;
-      }
+      fn: function () { return this.D + ' ' + this.H + ' ' + this.M; }
     },
     baseUrl: {
       deps: ['serverProtocol', 'serverIP', 'serverPort'],
-      fn: function () {
-        return this.serverProtocol + this.serverIP + ':' + this.serverPort;
-      }
+      fn: function () { return this.serverProtocol + this.serverIP + ':' + this.serverPort; }
     }
   },
   initialize() {
@@ -39,9 +31,7 @@ module.exports = AmpersandModel.extend({
     this.isPolling = true;
     this.fetchData();
     this.pollForData();
-
     this.queryByHook('game-time');
-
   },
   pollForData: function () {
     var _self = this;
@@ -59,32 +49,28 @@ module.exports = AmpersandModel.extend({
     } else if (window.app.me == null || !window.app.me.hasLogin) {
       return;
     }
-
     xhr({
       body: '',
       uri: url,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }, function (err, resp, body) {
-      if (resp.statusCode) {
-        try {
-          var _time = JSON.parse(body);
-          //{"Time":{"D":1,"H":10,"M":26},"Ticks":533150.5,"Fps":19.96,"Clients":0,"Entities":0}
-          window.app.gametime.D = _time.Time.D;
-          window.app.gametime.H = _time.Time.H;
-          window.app.gametime.M = _time.Time.M;
-          window.app.gametime.Ticks = _time.Ticks;
-          window.app.gametime.Fps = _time.Fps;
-          window.app.gametime.Clients = _time.Clients;
-          window.app.gametime.Entities = _time.Entities;
-        } catch (e) {
-          console.log("error", e);
+      headers: { 'Content-Type': 'application/json' }
+    },
+      function (err, resp, body) {
+        if (resp.statusCode) {
+          try {
+            var _time = JSON.parse(body);
+            window.app.gametime.D = _time.Time.D;
+            window.app.gametime.H = _time.Time.H;
+            window.app.gametime.M = _time.Time.M;
+            window.app.gametime.Ticks = _time.Ticks;
+            window.app.gametime.Fps = _time.Fps;
+            window.app.gametime.Clients = _time.Clients;
+            window.app.gametime.Entities = _time.Entities;
+          } catch (e) {
+            console.log('error', e);
+          }
+        } else {
+          console.log('error', resp.error);
         }
-      } else {
-        //todo: display error
-        console.log('error', resp.error);
-      }
-    });
+      });
   }
 });

@@ -15,21 +15,14 @@ app.extend({
   players: new Players(),
   pdfs: new Pdfs(),
   router: new Router(),
-  init: function () {
-    this.mainView = new MainView({
-      model: this.me,
-      el: document.body
-    });
-
+  init: function() {
+    this.mainView = new MainView({ model: this.me, el: document.body });
     this.router.history.start({ pushState: true });
     this.me.on('change', this.me.debouncedWriteToCache);
   },
-  navigate: function (page) {
-    var url = (page.charAt(0) === '?') ? page.slice(1) : page;
-
-    this.router.history.navigate(url, {
-      trigger: true
-    });
+  navigate: function(page) {
+    var url = page.charAt(0) === '?' ? page.slice(1) : page;
+    this.router.history.navigate(url, { trigger: true });
   }
 });
 

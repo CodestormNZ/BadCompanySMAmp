@@ -1,6 +1,5 @@
 var AmpersandModel = require('ampersand-model');
 
-
 module.exports = AmpersandModel.extend({
   props: {
     Name: 'string',
@@ -47,17 +46,16 @@ module.exports = AmpersandModel.extend({
   },
   parseDate: function (d) {
     if (d == null) return null;
-
     return d.getDate() +
-      "-" +
+      '-' +
       (this.months(d.getMonth())) +
-      "-" +
+      '-' +
       d.getFullYear() +
-      " " +
+      ' ' +
       this.lpad(d.getHours(), '0', 2) +
-      ":" +
+      ':' +
       this.lpad(d.getMinutes(), '0', 2) +
-      ":" +
+      ':' +
       this.lpad(d.getSeconds(), '0', 2);
   },
   months: function (m) {
@@ -94,7 +92,6 @@ module.exports = AmpersandModel.extend({
     while (('' + t).length < l) {
       t = '' + c + t;
     }
-
     return t;
   }
 });

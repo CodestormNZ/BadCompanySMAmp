@@ -1,21 +1,17 @@
-var AmpersandModel = require('ampersand-model');
-var xhr = require("xhr");
 var _ = require('lodash');
-
+var AmpersandModel = require('ampersand-model');
+var xhr = require('xhr');
 
 module.exports = AmpersandModel.extend({
   type: 'user',
   props: {
     adminName: ['string'],
     adminToken: ['string'],
-
     hasLogin: ['boolean'],
     steamId: ['string'],
     permissions: ['object'],
-
     pollrate: ['number'],
     isPolling: ['boolean'],
-
     serverProtocol: ['string', true, window.location.protocol + '//'],
     serverIP: ['string', true, window.location.hostname],
     serverPort: ['string', true, window.location.port],
@@ -42,9 +38,9 @@ module.exports = AmpersandModel.extend({
       deps: ['hasLogin'],
       fn: function () {
         if (this.hasLogin) {
-          return "display:" + "none";
+          return 'display:' + 'none';
         } else {
-          return "display:" + "unset";
+          return 'display:' + 'unset';
         }
       }
     },
@@ -52,9 +48,9 @@ module.exports = AmpersandModel.extend({
       deps: ['hasLogin'],
       fn: function () {
         if (this.hasLogin) {
-          return "display:" + "unset";
+          return 'display:' + 'unset';
         } else {
-          return "display:" + "none";
+          return 'display:' + 'none';
         }
       }
     }
@@ -76,7 +72,6 @@ module.exports = AmpersandModel.extend({
       var loaded = JSON.parse(data);
       this.set(loaded);
     }
-
     return this;
   },
   pollForData: function () {
@@ -93,22 +88,21 @@ module.exports = AmpersandModel.extend({
     xhr({
       body: '',
       uri: _self.urlEndPoint,
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }, function (err, resp, body) {
-      if (resp.statusCode) {
-        try {
-          var _usr = JSON.parse(body);
-          window.app.me.steamId = _usr.username;
-          window.app.me.hasLogin = _usr.loggedin;
-          window.app.me.permissions = _usr.permissions;
-        } catch (e) {
-          console.log("error", e);
+      headers: { "Content-Type": 'application/json' }
+    },
+      function (err, resp, body) {
+        if (resp.statusCode) {
+          try {
+            var _usr = JSON.parse(body);
+            window.app.me.steamId = _usr.username;
+            window.app.me.hasLogin = _usr.loggedin;
+            window.app.me.permissions = _usr.permissions;
+          } catch (e) {
+            console.log('error', e);
+          }
+        } else {
+          console.log('error', resp.error);
         }
-      } else {
-        console.log("error", resp.error);
-      }
-    });
+      });
   }
 });
