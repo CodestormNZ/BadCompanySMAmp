@@ -50,19 +50,19 @@ module.exports = AmpersandModel.extend({
     PlayTimeSpan: {
       deps: ['TotalPlayTime'],
       fn: function () {
-        return this.timespanFormat(this.TotalPlayTime);
+        return this.timespanFormat(this.TotalPlayTime * 60);
       }
     },
     SessTimeSpan: {
       deps: ['SessionPlayTime'],
       fn: function () {
-        return this.timespanFormat(this.SessionPlayTime);
+        return this.timespanFormat(this.SessionPlayTime * 60);
       }
     },
     LifeTime: {
       deps: ['CurrentLife', 'LongestLife'],
       fn: function () {
-        return this.timespanFormat(this.CurrentLife) + '/' + this.timespanFormat(this.LongestLife);
+        return this.timespanFormat(this.CurrentLife * 60) + '/' + this.timespanFormat(this.LongestLife * 60);
       }
     },
     HealthBar: {
@@ -149,12 +149,12 @@ module.exports = AmpersandModel.extend({
       }
     }
   },
-  timespanFormat: function (timespan) {
-    var totalSeconds = Math.round(timespan * 60, 0);
-    var d = Math.floor(totalSeconds / (60 * 60 * 24));
-    var h = Math.floor(totalSeconds / (60 * 60)) % 24;
-    var m = Math.floor(totalSeconds / 60) % 60;
-    var s = totalSeconds % 60;
+  timespanFormat: function (t) {
+    var ts = Math.floor(t);
+    var d = Math.floor(ts / (60 * 60 * 24));
+    var h = Math.floor(ts / (60 * 60)) % 24;
+    var m = Math.floor(ts / 60) % 60;
+    var s = ts % 60;
 
     return (
       (d > 0 ? d + 'd ' : '') +

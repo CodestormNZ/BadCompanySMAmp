@@ -9,7 +9,7 @@ module.exports = Collection.extend({
   },
   url: function () {
     var mode = 'online';
-    //const mode = 'all';
+    //var mode = 'all';
 
     if (window.app.me.adminName != null && window.app.me.adminName !== '') {
       return '/api/executeconsolecommand?raw=true' + '&adminuser=' + window.app.me.adminName + '&admintoken=' + window.app.me.adminToken +

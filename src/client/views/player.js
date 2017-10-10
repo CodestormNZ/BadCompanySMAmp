@@ -92,7 +92,7 @@ module.exports = View.extend({
     //}
   },
   clipboardPosition: function () {
-    const $temp = $("<input>");
+    var $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(this.queryByHook('position')).text()).select();
     document.execCommand("copy");
@@ -100,7 +100,7 @@ module.exports = View.extend({
     return false;
   },
   clipboardEntityId: function () {
-    const $temp = $("<input>");
+    var $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(this.queryByHook('entityid')).text()).select();
     document.execCommand("copy");
@@ -108,7 +108,7 @@ module.exports = View.extend({
     return false;
   },
   clipboardIp: function () {
-    const $temp = $("<input>");
+    var $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(this.queryByHook('ip')).text()).select();
     document.execCommand("copy");
@@ -116,7 +116,7 @@ module.exports = View.extend({
     return false;
   },
   clipboardSteamId: function () {
-    const $temp = $("<input>");
+    var $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(this.queryByHook('steamid')).text()).select();
     document.execCommand("copy");
