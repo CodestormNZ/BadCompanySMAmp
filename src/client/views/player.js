@@ -51,7 +51,7 @@ module.exports = View.extend({
     'model.RotationAngle': '[data-hook~=rotangle]',
     'model.ViewAngle': '[data-hook~=viewangle]'
   },
-  clipboardPosition: function() {
+  clipboardPosition: function () {
     var $temp = $('<input>');
     $('body').append($temp);
     $temp.val($(this.queryByHook('position')).text()).select();
@@ -59,7 +59,7 @@ module.exports = View.extend({
     $temp.remove();
     return false;
   },
-  clipboardEntityId: function() {
+  clipboardEntityId: function () {
     var $temp = $('<input>');
     $('body').append($temp);
     $temp.val($(this.queryByHook('entityid')).text()).select();
@@ -67,7 +67,7 @@ module.exports = View.extend({
     $temp.remove();
     return false;
   },
-  clipboardIp: function() {
+  clipboardIp: function () {
     var $temp = $('<input>');
     $('body').append($temp);
     $temp.val($(this.queryByHook('ip')).text()).select();
@@ -75,7 +75,7 @@ module.exports = View.extend({
     $temp.remove();
     return false;
   },
-  clipboardSteamId: function() {
+  clipboardSteamId: function () {
     var $temp = $('<input>');
     $('body').append($temp);
     $temp.val($(this.queryByHook('steamid')).text()).select();

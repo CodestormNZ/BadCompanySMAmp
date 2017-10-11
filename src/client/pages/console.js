@@ -7,7 +7,7 @@ var xhr = require('xhr');
 module.exports = PageView.extend({
   pageTitle: 'console',
   template: templates.pages.console,
-  initialize: function() {
+  initialize: function () {
     var self = this;
     self.model = new ConsoleModel();
   },
@@ -19,17 +19,17 @@ module.exports = PageView.extend({
     form: {
       container: 'form',
       waitFor: 'model',
-      prepareView: function(el) {
+      prepareView: function (el) {
         var model = this.model;
         return new ConsoleForm({
           el: el,
           model: this.model,
-          submitCallback: function(data) {
+          submitCallback: function (data) {
             model.adminName = window.app.me.adminName;
             model.adminToken = window.app.me.adminToken;
             model.command = data.command;
             xhr({ body: '', uri: model.urlEndPoint, headers: { "Content-Type": 'application/json' } },
-              function(err, resp, body) {
+              function (err, resp, body) {
                 if (resp.statusCode) {
                   model.response = body;
                 } else {

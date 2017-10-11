@@ -9,25 +9,17 @@ module.exports = AmpersandModel.extend({
     serverProtocol: ['string', true, window.location.protocol + '//'],
     serverIP: ['string', true, window.location.hostname],
     serverPort: ['string', true, window.location.port],
-    apiEndPoint: ['string', true, '/api/executeconsolecommand']
+    apiEndPoint: ['string', true, '/api/executeconsolecommand&raw=true']
   },
-  url: function() { return this.urlEndPoint; },
+  url: function () { return this.urlEndPoint; },
   derived: {
     urlEndPoint: {
       deps: ['adminToken', 'adminPassword', 'command'],
-      fn: function() {
-        return this.serverProtocol +
-          this.serverIP +
-          ':' +
-          this.serverPort +
-          this.apiEndPoint +
-          '?adminuser=' +
-          this.adminName +
-          '&admintoken=' +
-          this.adminToken +
-          '&raw=true&' +
-          'command=' +
-          this.command;
+      fn: function () {
+        return this.serverProtocol + this.serverIP + ':' + this.serverPort + this.apiEndPoint +
+          '&adminuser=' + this.adminName +
+          '&admintoken=' + this.adminToken +
+          'command=' + this.command;
       }
     }
   }

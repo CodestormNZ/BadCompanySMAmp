@@ -49,3 +49,4 @@ Temporary Items
 # Custom
 .vs
 node_modules
+src/client/_build

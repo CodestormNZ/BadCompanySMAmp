@@ -11,20 +11,20 @@ var templates = require('../templates');
 module.exports = View.extend({
   template: templates.body,
   autoRender: true,
-  initialize: function() { this.listenTo(app, 'page', this.handleNewPage); },
+  initialize: function () { this.listenTo(app, 'page', this.handleNewPage); },
   events: { 'click a[href]': 'handleLinkClick' },
-  render: function() {
+  render: function () {
     document.head.appendChild(domify(templates.head()));
     this.renderWithTemplate(this);
     this.pageSwitcher = new ViewSwitcher(this.queryByHook('page-container'),
       {
-        show: function(newView) {
+        show: function (newView) {
           document.title = 'BCM Web UI - ' + _.result(newView, 'pageTitle');
           document.scrollTop = 0;
           dom.addClass(newView.el, 'active');
           app.currentPage = newView;
         },
-        hide: function(oldView) {
+        hide: function (oldView) {
           if (oldView != null && oldView.isPolling != null) {
             oldView.isPolling = false;
           }
@@ -33,20 +33,20 @@ module.exports = View.extend({
     setFavicon('/favicon.ico');
     return this;
   },
-  handleNewPage: function(view) {
+  handleNewPage: function (view) {
     this.pageSwitcher.set(view);
     this.updateActiveNav();
   },
-  handleLinkClick: function(e) {
+  handleLinkClick: function (e) {
     var localPath = localLinks.pathname(e);
     if (localPath) {
       e.preventDefault();
       app.navigate(localPath);
     }
   },
-  updateActiveNav: function() {
+  updateActiveNav: function () {
     var path = window.location.search.slice(1);
-    this.queryAll('.nav a[href]').forEach(function(aTag) {
+    this.queryAll('.nav a[href]').forEach(function (aTag) {
       var aPath = aTag.search.slice(1);
       if ((!aPath && !path) || (aPath && path.indexOf(aPath) === 0)) {
         dom.addClass(aTag.parentNode, 'active');

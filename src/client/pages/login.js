@@ -5,7 +5,7 @@ var LoginForm = require('../forms/login');
 module.exports = PageView.extend({
   pageTitle: 'login',
   template: templates.pages.login,
-  initialize: function() {
+  initialize: function () {
     var self = this;
     self.model = window.app.me;
   },
@@ -20,12 +20,12 @@ module.exports = PageView.extend({
     form: {
       container: 'form',
       waitFor: 'model',
-      prepareView: function(el) {
+      prepareView: function (el) {
         var model = this.model;
         return new LoginForm({
           el: el,
           model: this.model,
-          submitCallback: function(data) {
+          submitCallback: function (data) {
             model.adminName = data.adminName;
             model.adminToken = data.adminToken;
           }
@@ -36,7 +36,7 @@ module.exports = PageView.extend({
   events: {
     'click [data-hook~=clear-button]': 'resetToken'
   },
-  resetToken: function() {
+  resetToken: function () {
     window.app.me.adminName = '';
     window.app.me.adminToken = '';
   }
