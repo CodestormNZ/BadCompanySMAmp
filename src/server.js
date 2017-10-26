@@ -27,12 +27,12 @@ fs.mkdirSync(moonbootsConfig.moonboots.buildDirectory);
 server.connection({ host: config.http.listen, port: config.http.port });
 internals.configStateConfig = { encoding: 'none', ttl: 1000 * 60 * 15, isSecure: config.isSecure };
 server.state('config', internals.configStateConfig);
-internals.clientConfig = JSON.stringify(config.client);
+internals.appConfig = JSON.stringify(config.app);
 server.ext('onPreResponse',
   function (request, reply) {
     if (!request.state.config) {
       var response = request.response;
-      return reply(response.state('config', encodeURIComponent(internals.clientConfig)));
+      return reply(response.state('config', encodeURIComponent(internals.appConfig)));
     }
     return reply.continue();
   });
@@ -47,13 +47,8 @@ server.register([
       jade: require('jade')
     },
     relativeTo: __dirname,
-    path: 'templates'
+    path: 'app/templates'
   });
-
-  console.log(MoonBootsHapi.register);
-  console.log(MoonBootsHapi.attributes);
-
-
   server.start(function (err) {
     if (err) throw err;
     console.log('BCM is running at: http://' + config.http.listen + ':' + config.http.port);

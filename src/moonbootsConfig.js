@@ -2,8 +2,9 @@ var config = require('getconfig');
 var stylizer = require('stylizer');
 var templatizer = require('templatizer');
 
-var appDir = __dirname + '/client';
-var cssDir = __dirname + '/stylesheets';
+var appDir = __dirname + '/app';
+var templateDir = __dirname + '/app/templates';
+var cssDir = __dirname + '/app/css';
 
 module.exports = {
   appPath: '/{p*}',
@@ -19,9 +20,9 @@ module.exports = {
     stylesheets: [cssDir + '/bootstrap.css', cssDir + '/app.css'],
     browserify: { debug: config.isDev },
     beforeBuildJS: function () {
-      if (config.isDev) {
-        templatizer(__dirname + '/templates', appDir + '/templates.js');
-      }
+      //if (config.isDev) {
+        templatizer(templateDir, appDir + '/templates.js');
+      //}
     },
     beforeBuildCSS: function (done) {
       if (!config.isDev) {
@@ -31,7 +32,7 @@ module.exports = {
       stylizer({
         infile: cssDir + '/app.styl',
         outfile: cssDir + '/app.css',
-        development: false,
+        development: true,
         watch: cssDir + '/**/*.styl'
       },
         done);

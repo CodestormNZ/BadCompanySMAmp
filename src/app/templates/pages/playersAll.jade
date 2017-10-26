@@ -1,0 +1,22 @@
+section.page
+  h2 All Players
+
+  .buttons.btn-group
+    button.btn.btn-default(data-hook="fetch") Refresh 
+
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th
+          span() Name
+        th
+          span() SteamId
+        th
+          span() Status
+        th
+          span.text-right() Last Online
+        th
+          span.text-right() Last Write
+        th
+          span.text-right() Last Logout Pos
+    tbody(data-hook="pdf-list")
