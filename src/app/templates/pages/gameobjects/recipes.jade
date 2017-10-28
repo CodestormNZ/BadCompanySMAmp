@@ -1,0 +1,32 @@
+section.page
+  div(data-hook="game-object-menu")
+
+  h2.section-title Recipes
+
+  .buttons.btn-group
+    button.btn.btn-default(data-hook="fetch") Refresh 
+
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th
+          span() Type
+        th
+          span() Count
+        th
+          span() CraftArea
+        th
+          span() CraftExp
+        th
+          span() CraftTime
+        th
+          span() CraftTool
+        th
+          span() Ingredients
+        th
+          span() SkillGroup
+        th
+          span() IsMatBased
+        th
+          span() IsWildForge
+    tbody(data-hook="recipe-list")

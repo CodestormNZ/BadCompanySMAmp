@@ -1,40 +1,44 @@
-div.gamestats.font-08em
-  div.text-nowrap(style="display:inline-block")
-    span Day 
-    span.gameday.font-08em(data-hook="game-day") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 Time 
-    span.gametime.font-08em(data-hook="game-time") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 Ticks 
-    span.ticks.font-08em(data-hook="game-ticks") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 FPS 
-    span.fps.font-08em(data-hook="game-fps") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 Clients 
-    span.clients.font-08em(data-hook="game-clients") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 Entities 
-    span.entities.font-08em(data-hook="game-entities") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 EntityInst 
-    span.entities.font-08em(data-hook="game-entityinst") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 Players 
-    span.entities.font-08em(data-hook="game-players") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 Enemies 
-    span.entities.font-08em(data-hook="game-enemies") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 Observers 
-    span.observers.font-08em(data-hook="game-observers") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 Chunks 
-    span.chunks.font-08em(data-hook="game-chunks") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 Objects 
-    span.entities.font-08em(data-hook="game-go") 
-  div.text-nowrap(style="display:inline-block")
-    span.pad-left-10 Items 
-    span.entities.font-08em(data-hook="game-items") 
+div
+  div.gamestat()
+    span.stat() Day 
+    span.val(data-hook="game-day") 
+  div.gamestat()
+    span.stat() Time 
+    span.val(data-hook="game-time") 
+  div.gamestat()
+    span.stat() Uptime 
+    span.val(data-hook="game-ticks") 
+  div.gamestat()
+    span.stat() FPS 
+    span.val(data-hook="game-fps") 
+  div.gamestat()
+    span.stat() Clients 
+    span.val(data-hook="game-clients") 
+  div.gamestat()
+    span.stat() Entities 
+    span.val(data-hook="game-entities") 
+  div.gamestat()
+    span.stat() Players 
+    span.val(data-hook="game-players") 
+  div.gamestat()
+    span.stat() Enemies 
+    span.val(data-hook="game-enemies") 
+  div.gamestat()
+    span.stat() Observers 
+    span.val(data-hook="game-observers") 
+  div.gamestat()
+    span.stat() Chunks 
+    span.val(data-hook="game-chunks") 
+  div.gamestat()
+    span.stat() Objects 
+    span.val(data-hook="game-objects") 
+  div.gamestat()
+    span.stat() Items 
+    span.val(data-hook="game-items") 
+  div.gamestat()
+    span.stat() Heap 
+    span.val(data-hook="game-heap") 
+    span.stat() Max 
+    span.val(data-hook="game-max") 
+    span.stat() Rss 
+    span.val(data-hook="game-rss") 

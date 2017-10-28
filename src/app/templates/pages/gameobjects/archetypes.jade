@@ -1,0 +1,24 @@
+section.page
+  div(data-hook="game-object-menu")
+
+  h2.section-title Archetypes
+
+  .buttons.btn-group
+    button.btn.btn-default(data-hook="fetch") Refresh 
+
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th
+          span() Name
+        th
+          span() Type
+        th
+          span() IsMale
+        th
+          span() HairColor
+        th
+          span() EyeColor
+        th
+          span() SkinColor
+    tbody(data-hook="archetype-list")

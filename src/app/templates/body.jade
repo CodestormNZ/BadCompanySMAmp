@@ -5,16 +5,19 @@ body
         a.navbar-brand(href='/static/BCM.html?home') Bad Company SM
       ul.nav.navbar-nav
         li
-          a(href="/static/BCM.html?online") Online
-        li
-          a(href="/static/BCM.html?players") All Players
-        li
           a(href="/static/BCM.html?console") Console
+        li
+          a(href="/static/BCM.html?players") Players
+        li
+          a(href="/static/BCM.html?entities") Entities
+        li
+          a(href="/static/BCM.html?gameobjects") GameObjects
         li
           a(href="/static/BCM.html?login") Login
 
+  nav(data-hook="game-stats")
+
   .container-fluid
-    div(data-hook="game-stats")
     div(class="clearfix")    
     main(data-hook="page-container")
     div(class="clearfix")    

@@ -1,37 +1,115 @@
-.cf:before,
-.cf:after {
-  content: " ";
-  display: table;
-}
-.footer-main {
-  padding: 40px 20px;
-  border-top: 1px solid #f7f7f7;
-  font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
-  font-size: 1em;
-  text-align: center;
-  color: #828c8f;
-}
-.footer-main .nav-footer {
-  max-width: 500px;
-  margin: 0 auto;
-}
-.footer-main .nav-footer div {
-  width: 33.33%;
-  padding: 0 5px;
-  float: left;
-}
-.footer-main p {
-  margin: 10px 0;
-}
-.footer-main .nav-item {
-  margin-bottom: 3px;
-  display: block;
-}
 body {
   background: #fff;
 }
+.navbar {
+  margin-bottom: 0px;
+}
 .section-title {
   color: #970000;
+}
+.stat-health {
+  color: #f00;
+}
+.stat-stamina {
+  color: #00f;
+}
+.stat-food {
+  color: #4caf50;
+}
+.stat-drink {
+  color: #64b5f6;
+}
+.stat-exp {
+  color: #00f;
+}
+.hoverlink {
+  cursor: pointer;
+}
+.hoverlink:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.bar-bg {
+  background-color: #cfcfcf;
+  width: 90px;
+}
+.bg-320 {
+  width: 320px;
+}
+.bg-60 {
+  width: 60px;
+}
+.stat-bar {
+  height: 5px;
+  display: inline-block;
+  margin-right: 5px;
+}
+.stat-bar .bar-health {
+  background-color: #f00;
+  width: 0px;
+  vertical-align: top;
+}
+.stat-bar .bar-stamina {
+  background-color: #00f;
+  width: 0px;
+  vertical-align: top;
+}
+.stat-bar .bar-food {
+  background-color: #4caf50;
+  width: 0px;
+  vertical-align: top;
+}
+.stat-bar .bar-drink {
+  background-color: #64b5f6;
+  width: 0px;
+  vertical-align: top;
+}
+.stat-bar .bar-exp {
+  background-color: #00f;
+  width: 0px;
+  vertical-align: top;
+}
+.level-progress {
+  font-size: 0.8em;
+}
+.life-span {
+  font-size: 0.8em;
+}
+.alive {
+  content: "\2625";
+}
+.dead {
+  content: "\2620";
+}
+.pad-left-10 {
+  padding-left: 10px;
+}
+.pad-left-5 {
+  padding-left: 5px;
+}
+.div-inline {
+  display: inline-block;
+}
+.font-06em {
+  font-size: 0.6em;
+}
+.font-07em {
+  font-size: 0.7em;
+}
+.font-08em {
+  font-size: 0.8em;
+}
+.font-09em {
+  font-size: 0.9em;
+}
+.font-11em {
+  font-size: 1.1em;
+}
+.font-12em {
+  font-size: 1.2em;
+}
+.nowrap {
+  white-space: nowrap;
 }
 .player {
   display: inline-block;
@@ -86,98 +164,84 @@ body {
   margin: 0 auto;
   color: #828c8f;
 }
-.pad-left-10 {
+.entity {
+  display: inline-block;
+  width: 100%;
+  margin: 4px;
+  padding: 4px;
+  border-top: 1px solid #800;
+  border-right: 1px solid #800;
+  border-bottom: 1px solid #800;
+  border-left: 1px solid #800;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.entity .entity-details {
+  padding: 3px 4px;
+  min-height: 34px;
+}
+.entity .entity-details .name-link {
+  color: #428bca;
+  font-weight: bold;
+  font-size: 24px;
+  color: #428bca;
+  min-height: 34px;
+}
+.entity .entity-details .life-symbol {
+  font-size: 1.4em;
+  font-weight: bold;
+  padding-left: 6px;
+  min-height: 34px;
+}
+.entity .entity-details .entityid {
+  font-style: italic;
+  padding-left: 0px;
+  min-height: 34px;
+}
+.entity .entity-details .position {
+  font-style: italic;
+  font-size: 1em;
+  white-space: nowrap;
+  padding-left: 6px;
+  min-height: 34px;
+}
+.gamestat {
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 0.8em;
+}
+.gamestat .stat {
   padding-left: 10px;
 }
-.pad-left-5 {
-  padding-left: 5px;
-}
-.stat-health {
-  color: #f00;
-}
-.stat-stamina {
-  color: #00f;
-}
-.stat-food {
-  color: #4caf50;
-}
-.stat-drink {
-  color: #64b5f6;
-}
-.stat-exp {
-  color: #00f;
-}
-.hoverlink {
-  cursor: pointer;
-}
-.hoverlink:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
-.stat-bar {
-  height: 5px;
-  display: inline-block;
-  margin-right: 5px;
-}
-.bar-bg {
-  background-color: #cfcfcf;
-  width: 90px;
-}
-.bg-320 {
-  width: 320px;
-}
-.bg-60 {
-  width: 60px;
-}
-.bar-health {
-  background-color: #f00;
-  width: 0px;
-  vertical-align: top;
-}
-.bar-stamina {
-  background-color: #00f;
-  width: 0px;
-  vertical-align: top;
-}
-.bar-food {
-  background-color: #4caf50;
-  width: 0px;
-  vertical-align: top;
-}
-.bar-drink {
-  background-color: #64b5f6;
-  width: 0px;
-  vertical-align: top;
-}
-.bar-exp {
-  background-color: #00f;
-  width: 0px;
-  vertical-align: top;
-}
-.div-inline {
-  display: inline-block;
-}
-.level-progress {
+.gamestat .val {
   font-size: 0.8em;
 }
-.life-span {
-  font-size: 0.8em;
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
 }
-.font-06em {
-  font-size: 0.6em;
+.footer-main {
+  padding: 40px 20px;
+  border-top: 1px solid #f7f7f7;
+  font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  text-align: center;
+  color: #828c8f;
 }
-.font-07em {
-  font-size: 0.7em;
+.footer-main .nav-footer {
+  max-width: 500px;
+  margin: 0 auto;
 }
-.font-08em {
-  font-size: 0.8em;
+.footer-main .nav-footer div {
+  width: 33.33%;
+  padding: 0 5px;
+  float: left;
 }
-.font-09em {
-  font-size: 0.9em;
+.footer-main p {
+  margin: 10px 0;
 }
-.font-11em {
-  font-size: 1.1em;
-}
-.font-12em {
-  font-size: 1.2em;
+.footer-main .nav-item {
+  margin-bottom: 3px;
+  display: block;
 }

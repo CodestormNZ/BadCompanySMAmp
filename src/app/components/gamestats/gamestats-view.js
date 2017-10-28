@@ -9,14 +9,16 @@ module.exports = ampView.extend({
     'model.TicksInt': '[data-hook~=game-ticks]',
     'model.FpsInt': '[data-hook~=game-fps]',
     'model.Clients': '[data-hook~=game-clients]',
-    'model.Entities': '[data-hook~=game-entities]',
-    'model.EntityInst': '[data-hook~=game-entityinst]',
+    'model.EntityStats': '[data-hook~=game-entities]',
     'model.Players': '[data-hook~=game-players]',
     'model.Enemies': '[data-hook~=game-enemies]',
     'model.Observers': '[data-hook~=game-observers]',
-    'model.Chunks': '[data-hook~=game-chunks]',
-    'model.GO': '[data-hook~=game-go]',
-    'model.Items': '[data-hook~=game-items]'
+    'model.ChunkStats': '[data-hook~=game-chunks]',
+    'model.Objects': '[data-hook~=game-objects]',
+    'model.Items': '[data-hook~=game-items]',
+    'model.Heap': '[data-hook~=game-heap]',
+    'model.Max': '[data-hook~=game-max]',
+    'model.Rss': '[data-hook~=game-rss]'
   },
   render: function () {
     this.renderWithTemplate(this);

@@ -1,5 +1,5 @@
 {
-  "isDev": false,
+  "isDev": true,
   "isSecure": false,
   "session": {
     "host": "localhost",
@@ -14,6 +14,6 @@
   },
   "app": {
     "apiUrl": "http://localhost:3000",
-    "debugMode": false
+    "debugMode": true
   }
 }

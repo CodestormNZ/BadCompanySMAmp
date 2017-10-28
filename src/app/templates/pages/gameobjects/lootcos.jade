@@ -1,0 +1,16 @@
+section.page
+  div(data-hook="game-object-menu")
+
+  h2.section-title Loot Containers
+
+  .buttons.btn-group
+    button.btn.btn-default(data-hook="fetch") Refresh 
+
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th
+          span() Id
+        th
+          span() Name
+    tbody(data-hook="lootco-list")

@@ -1,0 +1,33 @@
+div.entity
+  div.entity-details
+    div
+      div.div-inline(style="vertical-align:bottom")
+        a.name-link(data-hook="name") 
+      div.div-inline.pad-left-10
+        span.entityid()
+          | &#40;
+          a.hoverlink(data-hook="entityid" title="click to copy to clipboard")
+          | &#41;
+  
+      div.div-inline.pad-left-10(style="vertical-align:bottom;height: 16px;")
+        div(style="font-size:10px")
+          span.stat-health.pad-left-10() H:
+          span(data-hook="health")
+          span /
+          span(data-hook="maxhealth")
+        div.stat-bar.bar-bg()
+          div.stat-bar.bar-health(data-hook="health-bar")
+
+      div.div-inline.pad-left-10(style="vertical-align:bottom")
+        span.position()
+          a.hoverlink(data-hook="copypos" title="click to copy to clipboard") &#64;
+          span() &#32;
+          span(data-hook="position")
+          span(style="color:#428bca;") &#32;&#32;&#8635;&#32;
+          span(data-hook="rotangle")
+          span() &#0176;
+          span(style="color:#428bca;") &#32;&#32;&#8737;&#32;
+          span(data-hook="viewangle")
+
+      div.div-inline.pad-left-5(style="vertical-align:bottom")
+        span.life-symbol(data-hook="isalive")

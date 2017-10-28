@@ -2,10 +2,10 @@ var app = require('ampersand-app');
 var setFavicon = require('favicon-setter');
 var ampView = require('ampersand-view');
 var ampDom = require('ampersand-dom');
-var viewSwitcher = require('ampersand-view-switcher');
+var ViewSwitcher = require('ampersand-view-switcher');
 var _ = require('lodash');
 var domify = require('domify');
-var gameStats = require('../gamestats/gamestats-view');
+var GameStats = require('../gamestats/gamestats-view');
 var localLinks = require('local-links');
 var templates = require('../../templates');
 
@@ -17,7 +17,7 @@ module.exports = ampView.extend({
   render: function () {
     document.head.appendChild(domify(templates.head()));
     this.renderWithTemplate(this);
-    this.pageSwitcher = new viewSwitcher(this.queryByHook('page-container'),
+    this.pageSwitcher = new ViewSwitcher(this.queryByHook('page-container'),
       {
         show: function (newView) {
           document.title = 'BCM Web UI - ' + _.result(newView, 'pageTitle');
@@ -61,7 +61,7 @@ module.exports = ampView.extend({
       hook: 'game-stats',
       waitFor: 'model',
       prepareView: function (el) {
-        return new gameStats({
+        return new GameStats({
           el: el,
           parent: this,
           model: app.gamestats
