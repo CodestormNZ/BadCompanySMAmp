@@ -31,11 +31,11 @@ module.exports = baseView.extend({
     return false;
   },
   pollForData: function () {
-    var _self = this;
+    var self = this;
     setTimeout(function () {
-      if (_self.isPolling) {
-        _self.fetchCollection();
-        _self.pollForData();
+      if (self.isPolling) {
+        self.fetchCollection();
+        self.pollForData();
       }
     },
       window.app.players.baseDelay * window.app.players.cooldown);

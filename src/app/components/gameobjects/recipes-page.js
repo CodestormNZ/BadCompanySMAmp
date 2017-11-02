@@ -1,3 +1,4 @@
+var app = require('ampersand-app');
 var baseView = require('../_core/base');
 var collectionView = require('../gameobject/recipe-view');
 var GameObjectMenu = require('../gameobjects/gameobjectmenu-view');
@@ -8,11 +9,14 @@ module.exports = baseView.extend({
   template: templates.pages.gameobjects.recipes,
   events: { 'click [data-hook~=fetch]': 'fetchCollection' },
   render: function () {
+    if (!app.itemclasses.length) {
+      app.itemclasses.fetch();
+    };
     this.renderWithTemplate();
     this.renderCollection(this.collection, collectionView, this.queryByHook('recipe-list'));
     if (!this.collection.length) {
       this.fetchCollection();
-    }
+    };
   },
   fetchCollection: function () {
     this.collection.fetch();

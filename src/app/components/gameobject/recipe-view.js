@@ -1,3 +1,4 @@
+var app = require('ampersand-app');
 var ampView = require('ampersand-view');
 var Ingredients = require('../gameobjects/subviews/ingredients-view');
 var templates = require('../../templates');
@@ -5,7 +6,7 @@ var templates = require('../../templates');
 module.exports = ampView.extend({
   template: templates.includes.gameobject.recipe,
   bindings: {
-    'model.Type': '[data-hook~=type]',
+    'model.ItemClassName': '[data-hook~=type]',
     'model.Count': '[data-hook~=count]',
     'model.CraftArea': '[data-hook~=craftarea]',
     'model.CraftExp': '[data-hook~=craftexp]',
@@ -19,7 +20,7 @@ module.exports = ampView.extend({
   subviews: {
     div: {
       hook: 'ingredients',
-      waitFor: 'model',
+      waitFor: 'collection',
       prepareView: function (el) {
         return new Ingredients({
           el: el,

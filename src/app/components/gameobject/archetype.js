@@ -11,6 +11,6 @@ module.exports = ampModel.extend({
     SkinColor: 'string'
   },
   derived: {
-    ShowUrl: { deps: ['Id'], fn: function () { return '/static/BCM.html?gameobject/archetype/' + this.Id; } }
+    ShowUrl: { deps: ['Name'], fn: function () { return '/static/BCM.html?gameobject/archetype/' + this.Name; } }
   }
 });

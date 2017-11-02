@@ -28,7 +28,7 @@ module.exports = ampModel.extend({
     Effects: 'any'
   },
   derived: {
-    ShowUrl: { deps: ['Id'], fn: function () { return '/static/BCM.html?gameobject/skill/' + this.Id; } },
+    ShowUrl: { deps: ['Name'], fn: function () { return '/static/BCM.html?gameobject/skill/' + this.Name; } },
     SkillReqsCount: { deps: ['SkillReqs'], fn: function () { return this.SkillReqs.length; } },
     LockedItemsCount: { deps: ['LockedItems'], fn: function () { return this.LockedItems.length; } },
     EffectsCount: { deps: ['Effects'], fn: function () { return this.Effects.length; } }

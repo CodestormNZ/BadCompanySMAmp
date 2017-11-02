@@ -1,4 +1,3 @@
-//var app = require('ampersand-app');
 var ampCollection = require('ampersand-rest-collection');
 var ingredient = require('../../gameobject/subview/ingredient');
 

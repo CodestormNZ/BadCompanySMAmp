@@ -1,7 +1,11 @@
-﻿var ampModel = require('ampersand-model');
+﻿var app = require('ampersand-app');
+var ampModel = require('ampersand-model');
 var ingredients = require('../gameobjects/subviews/ingredients');
 
 module.exports = ampModel.extend({
+  collections: {
+    Ingredients: ingredients
+  },
   props:
   {
     Type: 'number',
@@ -11,16 +15,17 @@ module.exports = ampModel.extend({
     CraftTime: 'number',
     CraftTool: 'number',
     IsMatBased: 'boolean',
-    //IsScrappable: 'boolean',
-    //IsWildCamp: 'boolean',
     IsWildForge: 'boolean',
-    SkillGroup: 'string',
-    //Tooltip: 'string',
-  },
-  collections: {
-    Ingredients: ingredients
+    SkillGroup: 'string'
   },
   derived: {
-    ShowUrl: { deps: ['Type'], fn: function () { return '/static/BCM.html?gameobject/recipe/' + this.Type; } }
+    ShowUrl: { deps: ['Type'], fn: function () { return '/static/BCM.html?gameobject/recipe/' + this.Type; } },
+    ItemClassName: {
+      deps: ['Type'], fn: function () {
+        var itemclass = app.itemclasses.get(this.Type);
+        return itemclass != null ? itemclass.Name : '';
+      },
+      cache: false
+    }
   }
 });

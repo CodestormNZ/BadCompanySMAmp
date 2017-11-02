@@ -1,5 +1,6 @@
 section.page
-  div(data-hook="game-object-menu")
+  div.clearfix
+    div(data-hook="game-object-menu")
 
   h2.section-title Prefabs
 
@@ -9,8 +10,6 @@ section.page
   table.table.table-striped.table-hover
     thead
       tr
-        th
-          span() Id
         th
           span() Name
     tbody(data-hook="prefab-list")

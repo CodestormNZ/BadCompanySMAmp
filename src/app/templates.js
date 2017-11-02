@@ -22,7 +22,7 @@
 
     // body.jade compiled template
     templatizer["body"] = function tmpl_body() {
-        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/static/BCM.html?home" class="navbar-brand">Bad Company SM</a></div><ul class="nav navbar-nav"><li><a href="/static/BCM.html?console">Console</a></li><li><a href="/static/BCM.html?players">Players</a></li><li><a href="/static/BCM.html?entities">Entities</a></li><li><a href="/static/BCM.html?gameobjects">GameObjects</a></li><li><a href="/static/BCM.html?login">Login</a></li></ul></div></nav><nav data-hook="game-stats"></nav><div class="container-fluid"><div class="clearfix">   </div><main data-hook="page-container"></main><div class="clearfix">   </div><footer class="footer-main"><nav class="nav-footer cf"><div><a href="https://github.com/7days2mod/" target="_blank" class="nav-item external">7Days2Mod Home</a></div><div><a href="https://github.com/7days2mod/BadCompanySM" target="_blank" class="nav-item external">Bad Company SM</a></div><div><a href="https://7daystodie.com/forums/forum.php" target="_blank" class="nav-item external">Forums</a></div></nav></footer></div></body>';
+        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/static/BCM.html?home" class="navbar-brand">Bad Company SM</a></div><ul class="nav navbar-nav"><li><a href="/static/BCM.html?console">Console</a></li><li><a href="/static/BCM.html?players/online">Players</a></li><li><a href="/static/BCM.html?entities/enemies">Entities</a></li><li><a href="/static/BCM.html?gameobjects">GameObjects</a></li><li><a href="/static/BCM.html?login">Login</a></li></ul></div></nav><nav data-hook="game-stats"></nav><div class="container-fluid"><div class="clearfix">   </div><main data-hook="page-container"></main><div class="clearfix">   </div><footer class="footer-main"><nav class="nav-footer cf"><div><a href="https://github.com/7days2mod/" target="_blank" class="nav-item external">7Days2Mod Home</a></div><div><a href="https://github.com/7days2mod/BadCompanySM" target="_blank" class="nav-item external">Bad Company SM</a></div><div><a href="https://7daystodie.com/forums/forum.php" target="_blank" class="nav-item external">Forums</a></div></nav></footer></div></body>';
     };
 
     // head.jade compiled template
@@ -42,7 +42,7 @@
 
     // includes\gameobject\archetype.jade compiled template
     templatizer["includes"]["gameobject"]["archetype"] = function tmpl_includes_gameobject_archetype() {
-        return '<tr><td data-hook="name"></td><td data-hook="type"></td><td data-hook="ismale"></td><td data-hook="haircolor"></td><td data-hook="eyecolor"></td><td data-hook="haircolor"></td></tr>';
+        return '<tr><td><a data-hook="name"></a></td><td data-hook="type"></td><td data-hook="ismale"></td><td data-hook="haircolor"></td><td data-hook="eyecolor"></td><td data-hook="haircolor"></td></tr>';
     };
 
     // includes\gameobject\biome.jade compiled template
@@ -52,37 +52,37 @@
 
     // includes\gameobject\biomespawn.jade compiled template
     templatizer["includes"]["gameobject"]["biomespawn"] = function tmpl_includes_gameobject_biomespawn() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="name"></a></td><td data-hook="biomespawners"></td></tr>';
     };
 
     // includes\gameobject\block.jade compiled template
     templatizer["includes"]["gameobject"]["block"] = function tmpl_includes_gameobject_block() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="id"></a></td><td data-hook="name"></td><td data-hook="local"></td><td data-hook="material"></td><td data-hook="stacknumber"></td></tr>';
     };
 
     // includes\gameobject\buff.jade compiled template
     templatizer["includes"]["gameobject"]["buff"] = function tmpl_includes_gameobject_buff() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="id"></a></td><td data-hook="name"></td><td data-hook="icon"></td><td data-hook="duration"></td><td data-hook="durmode"></td><td data-hook="stackmode"></td><td data-hook="stackmax"></td><td data-hook="actions"></td><td data-hook="debuffactions"></td><td data-hook="buffconditions"></td><td data-hook="debuffconditions"></td><td data-hook="modifiers"></td><td data-hook="requires"></td><td data-hook="debuffbuff"></td><td data-hook="debuffbuffchance"></td><td data-hook="expirybuff"></td><td data-hook="expirybuffchance"></td><td data-hook="description"></td><td data-hook="tooltip"></td><td data-hook="descriptor"></td><td data-hook="smell"></td><td data-hook="castsound"></td><td data-hook="debuffsound"></td><td data-hook="expiredsound"></td><td data-hook="critonly"></td><td data-hook="ffcheck"></td><td data-hook="hitmasks"></td><td data-hook="mutex"></td><td data-hook="cures"></td><td data-hook="causes"></td></tr>';
     };
 
     // includes\gameobject\entityclass.jade compiled template
     templatizer["includes"]["gameobject"]["entityclass"] = function tmpl_includes_gameobject_entityclass() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="name"></a></td><td data-hook="class"></td><td data-hook="archetype"></td><td data-hook="model"></td><td data-hook="maxhealth"></td><td data-hook="experience"></td><td data-hook="deadhp"></td><td data-hook="lootondead"></td><td data-hook="lootalive"></td><td data-hook="buffs"></td><td data-hook="signtrange"></td><td data-hook="physics"></td><td data-hook="ismale"></td><td data-hook="isenemy"></td><td data-hook="corpseid"></td><td data-hook="corpsechance"></td><td data-hook="userinst"></td></tr>';
     };
 
     // includes\gameobject\entitygroup.jade compiled template
     templatizer["includes"]["gameobject"]["entitygroup"] = function tmpl_includes_gameobject_entitygroup() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="name"></a></td><td data-hook="entityspawns" class="font-07em"></td></tr>';
     };
 
     // includes\gameobject\item.jade compiled template
     templatizer["includes"]["gameobject"]["item"] = function tmpl_includes_gameobject_item() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="id"></a></td><td data-hook="name"></td><td data-hook="local"></td><td data-hook="material"></td><td data-hook="stacknumber"></td></tr>';
     };
 
     // includes\gameobject\itemclass.jade compiled template
     templatizer["includes"]["gameobject"]["itemclass"] = function tmpl_includes_gameobject_itemclass() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="id"></a></td><td data-hook="name"></td><td data-hook="local"></td><td data-hook="material"></td><td data-hook="stacknumber"></td></tr>';
     };
 
     // includes\gameobject\lootco.jade compiled template
@@ -97,32 +97,32 @@
 
     // includes\gameobject\lootpt.jade compiled template
     templatizer["includes"]["gameobject"]["lootpt"] = function tmpl_includes_gameobject_lootpt() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="name"></a></td><td data-hook="templates"></td></tr>';
     };
 
     // includes\gameobject\lootqt.jade compiled template
     templatizer["includes"]["gameobject"]["lootqt"] = function tmpl_includes_gameobject_lootqt() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="name"></a></td><td data-hook="templates"></td></tr>';
     };
 
     // includes\gameobject\material.jade compiled template
     templatizer["includes"]["gameobject"]["material"] = function tmpl_includes_gameobject_material() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="id"></a></td><td data-hook="experience"></td><td data-hook="maxdamage"></td><td data-hook="movementfactor"></td><td data-hook="fertilelevel"></td><td data-hook="hardness"></td><td data-hook="lightopacity"></td><td data-hook="mass"></td><td data-hook="stabilityglue"></td><td data-hook="stabilitysupport"></td><td data-hook="damagecategory"></td><td data-hook="forgecategory"></td><td data-hook="particlecategory"></td><td data-hook="destroycategory"></td><td data-hook="surfacecategory"></td><td data-hook="stepsound"></td><td data-hook="resistance"></td><td data-hook="iscollidable"></td><td data-hook="isgroundCover"></td><td data-hook="isliquid"></td><td data-hook="isplant"></td></tr>';
     };
 
     // includes\gameobject\prefab.jade compiled template
     templatizer["includes"]["gameobject"]["prefab"] = function tmpl_includes_gameobject_prefab() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="name"></a></td></tr>';
     };
 
     // includes\gameobject\quest.jade compiled template
     templatizer["includes"]["gameobject"]["quest"] = function tmpl_includes_gameobject_quest() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td></tr>';
+        return '<tr><td><a data-hook="id"></a></td><td data-hook="name"></td><td data-hook="group"></td><td data-hook="subtitle"></td><td data-hook="difficulty"></td><td data-hook="icon"></td><td data-hook="repeatable"></td><td data-hook="category"></td><td data-hook="actions"></td><td data-hook="requirements"></td><td data-hook="objectives"></td><td data-hook="rewards"></td></tr>';
     };
 
     // includes\gameobject\recipe.jade compiled template
     templatizer["includes"]["gameobject"]["recipe"] = function tmpl_includes_gameobject_recipe() {
-        return '<tr><td style="padding: 3px;"><a data-hook="type"></a></td><td data-hook="count"></td><td data-hook="craftarea"></td><td data-hook="craftexp"></td><td data-hook="crafttime"></td><td data-hook="crafttool"></td><td data-hook="ingredients"></td><td data-hook="skillgroup"></td><td data-hook="ismatbased"></td><td data-hook="iswildforge"></td></tr>';
+        return '<tr><td><a data-hook="type"></a></td><td data-hook="count"></td><td data-hook="craftarea"></td><td data-hook="craftexp"></td><td data-hook="crafttime"></td><td data-hook="crafttool"></td><td data-hook="ingredients"></td><td data-hook="skillgroup"></td><td data-hook="ismatbased"></td><td data-hook="iswildforge"></td></tr>';
     };
 
     // includes\gameobject\rwg.jade compiled template
@@ -132,7 +132,7 @@
 
     // includes\gameobject\skill.jade compiled template
     templatizer["includes"]["gameobject"]["skill"] = function tmpl_includes_gameobject_skill() {
-        return '<tr><td style="padding: 3px;"><a data-hook="id"></a></td><td data-hook="name"></td><td data-hook="localized"></td><td data-hook="expgainmult"></td><td data-hook="group"></td><td data-hook="exptonext"></td><td data-hook="level"></td><td data-hook="islocked"></td><td data-hook="titlekey"></td><td data-hook="desckey"></td><td data-hook="icon"></td><td data-hook="maxlevel"></td><td data-hook="baseexpto"></td><td data-hook="expmult"></td><td data-hook="ispassive"></td><td data-hook="isperk"></td><td data-hook="iscrafting"></td><td data-hook="alwaysfire"></td><td data-hook="costper"></td><td data-hook="costmult"></td><td data-hook="skillreqs"></td><td data-hook="lockeditems"></td><td data-hook="effects"></td></tr>';
+        return '<tr><td><a data-hook="name"></a></td><td data-hook="localized"></td><td data-hook="expgainmult"></td><td data-hook="group"></td><td data-hook="exptonext"></td><td data-hook="level"></td><td data-hook="islocked"></td><td data-hook="titlekey"></td><td data-hook="desckey"></td><td data-hook="icon"></td><td data-hook="maxlevel"></td><td data-hook="baseexpto"></td><td data-hook="expmult"></td><td data-hook="ispassive"></td><td data-hook="isperk"></td><td data-hook="iscrafting"></td><td data-hook="alwaysfire"></td><td data-hook="costper"></td><td data-hook="costmult"></td><td data-hook="skillreqs"></td><td data-hook="lockeditems"></td><td data-hook="effects"></td></tr>';
     };
 
     // includes\gameobject\spawner.jade compiled template
@@ -140,14 +140,54 @@
         return '<tr><td style="padding: 3px;"><a data-hook="key"></a></td><td data-hook="dynamic"></td><td data-hook="wrapdays"></td><td data-hook="clampdays"></td><td data-hook="spawns"></td></tr>';
     };
 
+    // includes\gameobject\subview\biomespawner.jade compiled template
+    templatizer["includes"]["gameobject"]["subview"]["biomespawner"] = function tmpl_includes_gameobject_subview_biomespawner() {
+        return '<tr class="font-07em"><td data-hook="group"></td><td data-hook="time"></td><td data-hook="max"></td><td data-hook="delay"></td><td data-hook="dead"></td></tr>';
+    };
+
+    // includes\gameobject\subview\buffcondition.jade compiled template
+    templatizer["includes"]["gameobject"]["subview"]["buffcondition"] = function tmpl_includes_gameobject_subview_buffcondition() {
+        return '<tr class="font-07em"><td data-hook="counter"></td><td data-hook="type"></td><td data-hook="value"></td></tr>';
+    };
+
+    // includes\gameobject\subview\buffmodifier.jade compiled template
+    templatizer["includes"]["gameobject"]["subview"]["buffmodifier"] = function tmpl_includes_gameobject_subview_buffmodifier() {
+        return '<tr class="font-07em"><td data-hook="uid"></td><td data-hook="stat"></td><td data-hook="type"></td><td><span data-hook="valend"></span><span> / </span><span data-hook="freq"></span><span>s - </span><span data-hook="fdur"></span><span>s</span></td><td data-hook="target"></td></tr>';
+    };
+
+    // includes\gameobject\subview\entityspawn.jade compiled template
+    templatizer["includes"]["gameobject"]["subview"]["entityspawn"] = function tmpl_includes_gameobject_subview_entityspawn() {
+        return '<tr class="font-07em"><td data-hook="entityclass"></td><td data-hook="prob"></td><td data-hook="reqmin"></td><td data-hook="reqmax"></td></tr>';
+    };
+
+    // includes\gameobject\subview\idvaluepair.jade compiled template
+    templatizer["includes"]["gameobject"]["subview"]["idvaluepair"] = function tmpl_includes_gameobject_subview_idvaluepair() {
+        return '<tr class="font-07em"><td data-hook="type"></td><td data-hook="id"></td><td data-hook="value"></td></tr>';
+    };
+
     // includes\gameobject\subview\ingredient.jade compiled template
     templatizer["includes"]["gameobject"]["subview"]["ingredient"] = function tmpl_includes_gameobject_subview_ingredient() {
-        return '<tr><td><span data-hook="count"></span><span>x </span></td><td data-hook="type"></td></tr>';
+        return '<tr class="font-07em"><td class="col-lg-2"><span data-hook="count"></span><span>x </span></td><td data-hook="type" class="col-lg-10"></td></tr>';
+    };
+
+    // includes\gameobject\subview\probtemplate.jade compiled template
+    templatizer["includes"]["gameobject"]["subview"]["probtemplate"] = function tmpl_includes_gameobject_subview_probtemplate() {
+        return '<tr class="font-07em"><td><span>Level: </span><span data-hook="minlevel"></span><span> - </span><span data-hook="maxlevel"></span></td><td data-hook="prob"></td></tr>';
+    };
+
+    // includes\gameobject\subview\qualtemplate.jade compiled template
+    templatizer["includes"]["gameobject"]["subview"]["qualtemplate"] = function tmpl_includes_gameobject_subview_qualtemplate() {
+        return '<tr class="font-07em"><td><span>Level: </span><span data-hook="minlevel"></span><span> - </span><span data-hook="maxlevel"></span></td><td><span>Default: </span><span data-hook="minqual"></span><span> - </span><span data-hook="maxqual"></span></td><td data-hook="items"></td></tr>';
+    };
+
+    // includes\gameobject\subview\qualtemplateitem.jade compiled template
+    templatizer["includes"]["gameobject"]["subview"]["qualtemplateitem"] = function tmpl_includes_gameobject_subview_qualtemplateitem() {
+        return '<tr><td data-hook="prob"></td><td><span>Qual: </span><span data-hook="minqual"></span><span> - </span><span data-hook="maxqual"></span></td></tr>';
     };
 
     // includes\gameobjectmenu.jade compiled template
     templatizer["includes"]["gameobjectmenu"] = function tmpl_includes_gameobjectmenu() {
-        return '<ul class="nav navbar-nav font-07em"><li><a href="/static/BCM.html?gameobjects/archetypes">Archetypes</a></li><li><a href="/static/BCM.html?gameobjects/biomes">Biomes</a></li><li><a href="/static/BCM.html?gameobjects/biomespawning">BiomeSpawning</a></li><li><a href="/static/BCM.html?gameobjects/blocks">Blocks</a></li><li><a href="/static/BCM.html?gameobjects/buffs">Buffs</a></li><li><a href="/static/BCM.html?gameobjects/entityclasses">EntityClasses</a></li><li><a href="/static/BCM.html?gameobjects/entitygroups">EntityGroups</a></li><li><a href="/static/BCM.html?gameobjects/itemclasses">ItemClasses</a></li><li><a href="/static/BCM.html?gameobjects/items">Items</a></li><li><a href="/static/BCM.html?gameobjects/lootcos">LootContainers</a></li><li><a href="/static/BCM.html?gameobjects/lootgrs">LootGroups</a></li><li><a href="/static/BCM.html?gameobjects/lootqts">LootQualityTemplates</a></li><li><a href="/static/BCM.html?gameobjects/lootpts">LootProbabilityTemplates</a></li><li><a href="/static/BCM.html?gameobjects/materials">Materials</a></li><li><a href="/static/BCM.html?gameobjects/prefabs">Prefabs</a></li><li><a href="/static/BCM.html?gameobjects/quests">Quests</a></li><li><a href="/static/BCM.html?gameobjects/recipes">Recipes</a></li><li><a href="/static/BCM.html?gameobjects/rwgs">Rwgs</a></li><li><a href="/static/BCM.html?gameobjects/skills">Skills</a></li><li><a href="/static/BCM.html?gameobjects/spawners">Spawners</a></li></ul>';
+        return '<ul class="nav navbar-nav font-08em col-md-12"><li class="col-md-2"><ul class="nav"><li><H3>Entities</H3></li><li class="submenu"><a href="/static/BCM.html?gameobjects/archetypes">Archetypes</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/entityclasses">Classes</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/entitygroups">Groups</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/biomespawning">BiomeSpawning</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/spawners">Spawners</a></li></ul></li><li class="col-md-2"><ul class="nav"><li><H3>Objects</H3></li><li class="submenu"><a href="/static/BCM.html?gameobjects/itemclasses">Item Classes</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/blocks">Blocks</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/items">Items</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/recipes">Recipes</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/materials">Materials</a></li></ul></li><li class="col-md-2"><ul class="nav"><li><H3>Loot</H3></li><li class="submenu"><a href="/static/BCM.html?gameobjects/lootcos">Containers</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/lootgrs">Groups</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/lootqts">Qual Templates</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/lootpts">Prob Templates</a></li></ul></li><li class="col-md-2"><ul class="nav"><li><H3>World</H3></li><li class="submenu"><a href="/static/BCM.html?gameobjects/biomes">Biomes</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/prefabs">Prefabs</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/rwgs">Rwg</a></li></ul></li><li class="col-md-2"><ul class="nav"><li><H3>Modifiers</H3></li><li class="submenu"><a href="/static/BCM.html?gameobjects/buffs">Buffs</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/skills">Skills</a></li><li class="submenu"><a href="/static/BCM.html?gameobjects/quests">Quests</a></li></ul></li></ul>';
     };
 
     // includes\gamestats.jade compiled template
@@ -186,112 +226,152 @@
 
     // pages\gameobjects\archetypes.jade compiled template
     templatizer["pages"]["gameobjects"]["archetypes"] = function tmpl_pages_gameobjects_archetypes() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Archetypes</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th><th><span>Type</span></th><th><span>IsMale</span></th><th><span>HairColor</span></th><th><span>EyeColor</span></th><th><span>SkinColor</span></th></tr></thead><tbody data-hook="archetype-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Archetypes</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th><th><span>Type</span></th><th><span>IsMale</span></th><th><span>HairColor</span></th><th><span>EyeColor</span></th><th><span>SkinColor</span></th></tr></thead><tbody data-hook="archetype-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\biomes.jade compiled template
     templatizer["pages"]["gameobjects"]["biomes"] = function tmpl_pages_gameobjects_biomes() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Biomes</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="biome-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Biomes</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="biome-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\biomespawning.jade compiled template
     templatizer["pages"]["gameobjects"]["biomespawning"] = function tmpl_pages_gameobjects_biomespawning() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Biome Spawning</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="biomespawn-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Biome Spawning</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th><th><span>Spawns</span></th></tr></thead><tbody data-hook="biomespawn-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\blocks.jade compiled template
     templatizer["pages"]["gameobjects"]["blocks"] = function tmpl_pages_gameobjects_blocks() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Blocks</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="block-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Blocks</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th><th><span>Local</span></th><th><span>Material</span></th><th><span>StackNumber</span></th></tr></thead><tbody data-hook="block-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\buffs.jade compiled template
     templatizer["pages"]["gameobjects"]["buffs"] = function tmpl_pages_gameobjects_buffs() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Buffs</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="buff-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Buffs</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th><th><span>Icon</span></th><th><span>Duration</span></th><th><span>DurMode</span></th><th><span>StackMode</span></th><th><span>StackMax</span></th><th><span>Actions</span></th><th><span>DebuffActions</span></th><th><span>BuffConditions</span></th><th><span>DebuffConditions</span></th><th><span>Modifiers</span></th><th><span>Requires</span></th><th><span>DebuffBuff</span></th><th><span>DebuffBuffChance</span></th><th><span>ExpiryBuff</span></th><th><span>ExpiryBuffChance</span></th><th><span>Description</span></th><th><span>Tooltip</span></th><th><span>Descriptor</span></th><th><span>Smell</span></th><th><span>CastSound</span></th><th><span>DebuffSound</span></th><th><span>ExpiredSound</span></th><th><span>CritOnly</span></th><th><span>FFCheck</span></th><th><span>HitMasks</span></th><th><span>Mutex</span></th><th><span>Cures</span></th><th><span>Causes</span></th></tr></thead><tbody data-hook="buff-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\entityclasses.jade compiled template
     templatizer["pages"]["gameobjects"]["entityclasses"] = function tmpl_pages_gameobjects_entityclasses() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Entity Classes</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="entityclass-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Entity Classes</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th><th><span>Class</span></th><th><span>Archetype</span></th><th><span>Model</span></th><th><span>MaxHealth</span></th><th><span>Experience</span></th><th><span>DeadHP</span></th><th><span>LootOnDeath</span></th><th><span>LootAlive</span></th><th><span>Buffs</span></th><th><span>SightRange</span></th><th><span>Physics</span></th><th><span>IsMale</span></th><th><span>IsEnemy</span></th><th><span>CorpseId</span></th><th><span>CorpseChance</span></th><th><span>UserInst</span></th></tr></thead><tbody data-hook="entityclass-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\entitygroups.jade compiled template
     templatizer["pages"]["gameobjects"]["entitygroups"] = function tmpl_pages_gameobjects_entitygroups() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Entity Groups</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="entitygroup-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Entity Groups</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th><th><span>Entities</span></th></tr></thead><tbody data-hook="entitygroup-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\gameobjects.jade compiled template
     templatizer["pages"]["gameobjects"]["gameobjects"] = function tmpl_pages_gameobjects_gameobjects() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Game Objects</h2><div>Select from the sub menu to see the table view for each game object type</div></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Game Objects</h2><div>Select from the sub menu to see the table view for each game object type</div></section>';
     };
 
     // pages\gameobjects\itemclasses.jade compiled template
     templatizer["pages"]["gameobjects"]["itemclasses"] = function tmpl_pages_gameobjects_itemclasses() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Item Classes</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="itemclass-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Item Classes</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th><th><span>Local</span></th><th><span>Material</span></th><th><span>StackNumber</span></th></tr></thead><tbody data-hook="itemclass-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\items.jade compiled template
     templatizer["pages"]["gameobjects"]["items"] = function tmpl_pages_gameobjects_items() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Items</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="item-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Items</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th><th><span>Local</span></th><th><span>Material</span></th><th><span>StackNumber</span></th></tr></thead><tbody data-hook="item-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\lootcos.jade compiled template
     templatizer["pages"]["gameobjects"]["lootcos"] = function tmpl_pages_gameobjects_lootcos() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Loot Containers</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="lootco-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Loot Containers</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="lootco-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\lootgrs.jade compiled template
     templatizer["pages"]["gameobjects"]["lootgrs"] = function tmpl_pages_gameobjects_lootgrs() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Loot Groups</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="lootgr-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Loot Groups</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="lootgr-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\lootpts.jade compiled template
     templatizer["pages"]["gameobjects"]["lootpts"] = function tmpl_pages_gameobjects_lootpts() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Loot Probability Templates</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="lootpt-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Loot Probability Templates</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th><th><span>Templates</span></th></tr></thead><tbody data-hook="lootpt-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\lootqts.jade compiled template
     templatizer["pages"]["gameobjects"]["lootqts"] = function tmpl_pages_gameobjects_lootqts() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Loot Quality Templates</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="lootqt-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Loot Quality Templates</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th><th><span>Templates</span></th></tr></thead><tbody data-hook="lootqt-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\materials.jade compiled template
     templatizer["pages"]["gameobjects"]["materials"] = function tmpl_pages_gameobjects_materials() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Materials</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="material-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Materials</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Experience</span></th><th><span>MaxDamage</span></th><th><span>MovementFactor</span></th><th><span>FertileLevel</span></th><th><span>Hardness</span></th><th><span>LightOpacity</span></th><th><span>Mass</span></th><th><span>StabilityGlue</span></th><th><span>StabilitySupport</span></th><th><span>DamageCategory</span></th><th><span>ForgeCategory</span></th><th><span>ParticleCategory</span></th><th><span>DestroyCategory</span></th><th><span>SurfaceCategory</span></th><th><span>StepSound</span></th><th><span>Resistance</span></th><th><span>IsCollidable</span></th><th><span>IsGroundCover</span></th><th><span>IsLiquid</span></th><th><span>IsPlant</span></th></tr></thead><tbody data-hook="material-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\prefabs.jade compiled template
     templatizer["pages"]["gameobjects"]["prefabs"] = function tmpl_pages_gameobjects_prefabs() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Prefabs</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="prefab-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Prefabs</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th></tr></thead><tbody data-hook="prefab-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\quests.jade compiled template
     templatizer["pages"]["gameobjects"]["quests"] = function tmpl_pages_gameobjects_quests() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Quests</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="quest-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Quests</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th><th><span>Group</span></th><th><span>SubTitle</span></th><th><span>Difficulty</span></th><th><span>Icon</span></th><th><span>Repeatable</span></th><th><span>Category</span></th><th><span>Actions</span></th><th><span>Requirements</span></th><th><span>Objectives</span></th><th><span>Rewards</span></th></tr></thead><tbody data-hook="quest-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\recipes.jade compiled template
     templatizer["pages"]["gameobjects"]["recipes"] = function tmpl_pages_gameobjects_recipes() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Recipes</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Type</span></th><th><span>Count</span></th><th><span>CraftArea</span></th><th><span>CraftExp</span></th><th><span>CraftTime</span></th><th><span>CraftTool</span></th><th><span>Ingredients</span></th><th><span>SkillGroup</span></th><th><span>IsMatBased</span></th><th><span>IsWildForge</span></th></tr></thead><tbody data-hook="recipe-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Recipes</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Type</span></th><th><span>Count</span></th><th><span>CraftArea</span></th><th><span>CraftExp</span></th><th><span>CraftTime</span></th><th><span>CraftTool</span></th><th><span>Ingredients</span></th><th><span>SkillGroup</span></th><th><span>IsMatBased</span></th><th><span>IsWildForge</span></th></tr></thead><tbody data-hook="recipe-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\rwgs.jade compiled template
     templatizer["pages"]["gameobjects"]["rwgs"] = function tmpl_pages_gameobjects_rwgs() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">RWG</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="rwg-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">RWG</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th></tr></thead><tbody data-hook="rwg-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\skills.jade compiled template
     templatizer["pages"]["gameobjects"]["skills"] = function tmpl_pages_gameobjects_skills() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Skills</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Id</span></th><th><span>Name</span></th><th><span>Localized</span></th><th><span>ExpGainMult</span></th><th><span>Group</span></th><th><span>ExpToNext</span></th><th><span>Level</span></th><th><span>IsLocked</span></th><th><span>TitleKey</span></th><th><span>DescKey</span></th><th><span>Icon</span></th><th><span>MaxLevel</span></th><th><span>BaseExpTo</span></th><th><span>ExpMult</span></th><th><span>IsPassive</span></th><th><span>IsPerk</span></th><th><span>IsCrafting</span></th><th><span>AlwaysFire</span></th><th><span>CostPer</span></th><th><span>CostMult</span></th><th><span>SkillReqs</span></th><th><span>LockedItems</span></th><th><span>Effects</span></th></tr></thead><tbody data-hook="skill-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Skills</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th><th><span>Localized</span></th><th><span>ExpGainMult</span></th><th><span>Group</span></th><th><span>ExpToNext</span></th><th><span>Level</span></th><th><span>IsLocked</span></th><th><span>TitleKey</span></th><th><span>DescKey</span></th><th><span>Icon</span></th><th><span>MaxLevel</span></th><th><span>BaseExpTo</span></th><th><span>ExpMult</span></th><th><span>IsPassive</span></th><th><span>IsPerk</span></th><th><span>IsCrafting</span></th><th><span>AlwaysFire</span></th><th><span>CostPer</span></th><th><span>CostMult</span></th><th><span>SkillReqs</span></th><th><span>LockedItems</span></th><th><span>Effects</span></th></tr></thead><tbody data-hook="skill-list"></tbody></table></section>';
     };
 
     // pages\gameobjects\spawners.jade compiled template
     templatizer["pages"]["gameobjects"]["spawners"] = function tmpl_pages_gameobjects_spawners() {
-        return '<section class="page"><div data-hook="game-object-menu"></div><h2 class="section-title">Spawners</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Key</span></th><th><span>Dynamic</span></th><th><span>Wrap Days</span></th><th><span>Clamp Days</span></th><th><span>Unique Spawn Days</span></th></tr></thead><tbody data-hook="spawner-list"></tbody></table></section>';
+        return '<section class="page"><div class="clearfix"><div data-hook="game-object-menu"></div></div><h2 class="section-title">Spawners</h2><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Key</span></th><th><span>Dynamic</span></th><th><span>Wrap Days</span></th><th><span>Clamp Days</span></th><th><span>Unique Spawn Days</span></th></tr></thead><tbody data-hook="spawner-list"></tbody></table></section>';
+    };
+
+    // pages\gameobjects\subviews\biomespawners.jade compiled template
+    templatizer["pages"]["gameobjects"]["subviews"]["biomespawners"] = function tmpl_pages_gameobjects_subviews_biomespawners() {
+        return '<td style="padding:0;"><table style="margin-bottom: 0px;" class="table table-condensed biomespawner-table"><tbody data-hook="biomespawner-list"></tbody></table></td>';
+    };
+
+    // pages\gameobjects\subviews\buffconditions.jade compiled template
+    templatizer["pages"]["gameobjects"]["subviews"]["buffconditions"] = function tmpl_pages_gameobjects_subviews_buffconditions() {
+        return '<td style="padding:0;"><table style="margin-bottom: 0px;" class="table table-condensed buffcondition-table"><tbody data-hook="buffcondition-list"></tbody></table></td>';
+    };
+
+    // pages\gameobjects\subviews\buffmodifiers.jade compiled template
+    templatizer["pages"]["gameobjects"]["subviews"]["buffmodifiers"] = function tmpl_pages_gameobjects_subviews_buffmodifiers() {
+        return '<td style="padding:0;"><table style="margin-bottom: 0px;" class="table table-condensed buffmodifier-table"><tbody data-hook="buffmodifier-list"></tbody></table></td>';
+    };
+
+    // pages\gameobjects\subviews\entityspawns.jade compiled template
+    templatizer["pages"]["gameobjects"]["subviews"]["entityspawns"] = function tmpl_pages_gameobjects_subviews_entityspawns() {
+        return '<td style="padding:0;"><table style="margin-bottom: 0px;" class="table table-condensed ingredient-table"><tbody data-hook="entityspawn-list"></tbody></table></td>';
+    };
+
+    // pages\gameobjects\subviews\idvaluepairs.jade compiled template
+    templatizer["pages"]["gameobjects"]["subviews"]["idvaluepairs"] = function tmpl_pages_gameobjects_subviews_idvaluepairs() {
+        return '<td style="padding:0;"><table style="margin-bottom: 0px;" class="table table-condensed ingredient-table"><tbody data-hook="idvaluepair-list"></tbody></table></td>';
     };
 
     // pages\gameobjects\subviews\ingredients.jade compiled template
     templatizer["pages"]["gameobjects"]["subviews"]["ingredients"] = function tmpl_pages_gameobjects_subviews_ingredients() {
-        return '<table class="table table-hover"><tbody data-hook="ingredient-list"></tbody></table>';
+        return '<td style="padding:0;"><table style="margin-bottom: 0px;" class="table table-condensed ingredient-table"><tbody data-hook="ingredient-list"></tbody></table></td>';
+    };
+
+    // pages\gameobjects\subviews\probtemplates.jade compiled template
+    templatizer["pages"]["gameobjects"]["subviews"]["probtemplates"] = function tmpl_pages_gameobjects_subviews_probtemplates() {
+        return '<td style="padding:0;"><table style="margin-bottom: 0px;" class="table table-condensed ingredient-table"><tbody data-hook="probtemplate-list"></tbody></table></td>';
+    };
+
+    // pages\gameobjects\subviews\qualtemplateitems.jade compiled template
+    templatizer["pages"]["gameobjects"]["subviews"]["qualtemplateitems"] = function tmpl_pages_gameobjects_subviews_qualtemplateitems() {
+        return '<td style="padding:0;"><table style="margin-bottom: 0px;" class="table table-condensed ingredient-table"><tbody data-hook="qualtemplateitem-list"></tbody></table></td>';
+    };
+
+    // pages\gameobjects\subviews\qualtemplates.jade compiled template
+    templatizer["pages"]["gameobjects"]["subviews"]["qualtemplates"] = function tmpl_pages_gameobjects_subviews_qualtemplates() {
+        return '<td style="padding:0;"><table style="margin-bottom: 0px;" class="table table-condensed ingredient-table"><tbody data-hook="qualtemplate-list"></tbody></table></td>';
     };
 
     // pages\home.jade compiled template
@@ -304,9 +384,14 @@
         return '<section class="page login"><h2 class="section-title">Admin Token Credentials</h2><p data-hook="credentials"></p><form data-hook="login-form"><fieldset data-hook="field-container"></fieldset><div class="buttons"><button data-hook="login-button" type="submit" class="btn">Submit</button></div></form><button data-hook="clear-button" class="btn">Clear</button><br/><div><div>Steam Open ID</div><div><a data-hook="steam-login" href="/session/login" target="_blank"><img src="/static/img/steamlogin.png" title="Sign in through Steam"/></a></div><div><a data-hook="steam-logout" href="/session/logout" target="_blank">Logout</a></div></div></section>';
     };
 
+    // pages\notimplemented.jade compiled template
+    templatizer["pages"]["notimplemented"] = function tmpl_pages_notimplemented() {
+        return '<section class="page home"><h2 class="section-title">Bad Company Server Manager</h2><div>Sorry, page not implemented...</div></section>';
+    };
+
     // pages\playersAll.jade compiled template
     templatizer["pages"]["playersAll"] = function tmpl_pages_playersAll() {
-        return '<section class="page"><h2 class="section-title">All Players</h2><a href="/static/BCM.html?players">Online Players</a><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th><th><span>SteamId</span></th><th><span>Status</span></th><th><span class="text-right">Last Online</span></th><th><span class="text-right">Last Write</span></th><th><span class="text-right">Last Logout Pos</span></th></tr></thead><tbody data-hook="pdf-list"></tbody></table></section>';
+        return '<section class="page"><h2 class="section-title">All Players</h2><a href="/static/BCM.html?players/online">Online Players</a><div class="buttons btn-group"><button data-hook="fetch" class="btn btn-default">Refresh </button></div><table class="table table-striped table-hover"><thead><tr><th><span>Name</span></th><th><span>SteamId</span></th><th><span>Status</span></th><th><span class="text-right">Last Online</span></th><th><span class="text-right">Last Write</span></th><th><span class="text-right">Last Logout Pos</span></th></tr></thead><tbody data-hook="pdf-list"></tbody></table></section>';
     };
 
     // pages\playerShow.jade compiled template
@@ -316,7 +401,7 @@
 
     // pages\playersOnline.jade compiled template
     templatizer["pages"]["playersOnline"] = function tmpl_pages_playersOnline() {
-        return '<section class="page"><h2 class="section-title">Online Players</h2><a href="/static/BCM.html?allplayers">All Players</a><div data-hook="player-list"></div><div></div></section>';
+        return '<section class="page"><h2 class="section-title">Online Players</h2><a href="/static/BCM.html?players/all">All Players</a><div data-hook="player-list"></div><div></div></section>';
     };
 
     return templatizer;

@@ -10,6 +10,6 @@ module.exports = ampView.extend({
     'model.IsBlock': '[data-hook~=isblock]',
     'model.Material': '[data-hook~=material]',
     'model.StackNumber': '[data-hook~=stacknumber]',
-    'model.ShowUrl': { type: 'attribute', hook: 'name', name: 'href' }
+    'model.ShowUrl': { type: 'attribute', hook: 'id', name: 'href' }
   }
 });

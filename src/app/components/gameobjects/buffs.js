@@ -10,6 +10,6 @@ module.exports = ampCollection.extend({
       (app.me.adminName != null && app.me.adminName !== '' ? '&adminuser=' + app.me.adminName : '') +
       (app.me.adminToken != null && app.me.adminToken !== '' ? '&admintoken=' + app.me.adminToken : '') +
       '&command=bc-go buffs' +
-      ' /filter=0,1';
+      ' /full';
   }
 });

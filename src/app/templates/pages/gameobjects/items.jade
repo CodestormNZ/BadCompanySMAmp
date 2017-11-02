@@ -1,5 +1,6 @@
 section.page
-  div(data-hook="game-object-menu")
+  div.clearfix
+    div(data-hook="game-object-menu")
 
   h2.section-title Items
 
@@ -13,4 +14,10 @@ section.page
           span() Id
         th
           span() Name
+        th
+          span() Local
+        th
+          span() Material
+        th
+          span() StackNumber
     tbody(data-hook="item-list")

@@ -1,5 +1,6 @@
 section.page
-  div(data-hook="game-object-menu")
+  div.clearfix
+    div(data-hook="game-object-menu")
 
   h2.section-title Biome Spawning
 
@@ -10,7 +11,7 @@ section.page
     thead
       tr
         th
-          span() Id
-        th
           span() Name
+        th
+          span() Spawns
     tbody(data-hook="biomespawn-list")

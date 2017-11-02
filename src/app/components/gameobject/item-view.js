@@ -4,8 +4,12 @@ var templates = require('../../templates');
 module.exports = ampView.extend({
   template: templates.includes.gameobject.item,
   bindings: {
-    'model.Id': '[data-hook~=id]',
+    'model.IdXml': '[data-hook~=id]',
     'model.Name': '[data-hook~=name]',
-    'model.ShowUrl': { type: 'attribute', hook: 'name', name: 'href' }
+    'model.Local': '[data-hook~=local]',
+    'model.IsBlock': '[data-hook~=isblock]',
+    'model.Material': '[data-hook~=material]',
+    'model.StackNumber': '[data-hook~=stacknumber]',
+    'model.ShowUrl': { type: 'attribute', hook: 'id', name: 'href' }
   }
 });

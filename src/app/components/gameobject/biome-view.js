@@ -12,6 +12,6 @@ module.exports = ampView.extend({
     'model.Spec': '[data-hook~=spec]',
     'model.Prob': '[data-hook~=prob]',
     'model.Rad': '[data-hook~=rad]',
-    'model.ShowUrl': { type: 'attribute', hook: 'name', name: 'href' }
+    'model.ShowUrl': { type: 'attribute', hook: 'id', name: 'href' }
   }
 });

@@ -7,5 +7,6 @@ module.exports = ampView.extend({
   render: function () {
     this.renderWithTemplate(this);
     this.renderCollection(this.collection, collectionView, this.queryByHook('ingredient-list'));
+    return this;
   }
 });

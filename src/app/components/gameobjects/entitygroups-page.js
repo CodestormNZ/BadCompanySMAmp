@@ -1,3 +1,4 @@
+var app = require('ampersand-app');
 var baseView = require('../_core/base');
 var collectionView = require('../gameobject/entitygroup-view');
 var GameObjectMenu = require('../gameobjects/gameobjectmenu-view');
@@ -8,6 +9,18 @@ module.exports = baseView.extend({
   template: templates.pages.gameobjects.entitygroups,
   events: { 'click [data-hook~=fetch]': 'fetchCollection' },
   render: function () {
+    var self = this;
+    if (!app.entityclasses.length) {
+      app.entityclasses.fetch({
+        success: function (coll, resp) {
+          self.redraw();
+        }
+      });
+    };
+
+    self.redraw();
+  },
+  redraw: function () {
     this.renderWithTemplate();
     this.renderCollection(this.collection, collectionView, this.queryByHook('entitygroup-list'));
     if (!this.collection.length) {

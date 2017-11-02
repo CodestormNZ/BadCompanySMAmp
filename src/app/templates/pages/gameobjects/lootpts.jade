@@ -1,5 +1,6 @@
 section.page
-  div(data-hook="game-object-menu")
+  div.clearfix
+    div(data-hook="game-object-menu")
 
   h2.section-title Loot Probability Templates
 
@@ -10,7 +11,7 @@ section.page
     thead
       tr
         th
-          span() Id
-        th
           span() Name
+        th
+          span() Templates
     tbody(data-hook="lootpt-list")
